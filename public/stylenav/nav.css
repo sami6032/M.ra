@@ -1,0 +1,186 @@
+.header{
+  width: 100%;
+  height: 100px;
+  font-weight: bold;
+  
+  }
+  
+  .bloc1{
+  display: flex;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  gap: 0px;
+  }
+
+
+*{
+  margin: 0;
+  padding: 0;
+  
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+body{
+  overflow-x: hidden;
+}
+.nav1{
+  height: 80px;
+  width: 100vw;
+  background-color: #000000;
+  /* opacity: 0.8; */
+  margin-top: -20px;
+  display: flex;
+  position: fixed;
+  z-index: 10;
+}
+
+/*Styling logo*/
+.logo{
+  padding:1vh 1vw;
+  text-align: center;
+}
+.logo img {
+  height: 5rem;
+  width: 5rem;
+}
+
+/*Styling Links*/
+.manav{
+  display: flex;
+  list-style: none; 
+  width: 88vw;
+  padding: 0 0.7vw;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+}
+.manav li a{
+  text-decoration: none;
+  margin: 0 0.7vw;
+  color: rgb(226, 223, 223);
+  font-weight: bold;
+}
+.manav li a:hover {
+  color: #ffffff;
+}
+.manav li {
+  position: relative;
+}
+.manav li a::before {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0%;
+  background-color: #ffffff;
+  position: absolute;
+  transition: all ease-in-out 250ms;
+  margin: 0 0 0 10%;
+  margin-top: 20px;
+}
+.manav li a:hover::before{
+  width: 80%;
+}
+
+
+
+
+
+
+/*Styling Hamburger Icon*/
+.hamb div{
+  width: 30px;
+  height:3px;
+  background: #f2f5f7;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+.hamb{
+  display: none;
+}
+
+/*Stying for small screens*/
+@media screen and (max-width: 800px){
+  .nav1{
+      position: fixed;
+      z-index: 3;
+  }
+  .hamb{
+      display:block;
+      position: absolute;
+      cursor: pointer;
+      right: 5%;
+      top: 50%;
+      transform: translate(-5%, -50%);
+      z-index: 2;
+      transition: all 0.7s ease;
+  }
+  .manav{
+      position: fixed;
+      background: #131418;
+      height: 100vh;
+      width: 100%;
+      flex-direction: column;
+      clip-path: circle(50px at 90% -20%);
+      -webkit-clip-path: circle(50px at 90% -10%);
+      transition: all 1s ease-out;
+      pointer-events: none;
+  }
+  .manav.open{
+      clip-path: circle(1000px at 90% -10%);
+      -webkit-clip-path: circle(1000px at 90% -10%);
+      pointer-events: all;
+  }
+  .manav li{
+      opacity: 0;
+  }
+  .manav li:nth-child(1){
+      transition: all 0.5s ease 0.2s;
+  }
+  .manav li:nth-child(2){
+      transition: all 0.5s ease 0.4s;
+  }
+  .manav li:nth-child(3){
+      transition: all 0.5s ease 0.6s;
+  }
+  .manav li:nth-child(4){
+      transition: all 0.5s ease 0.7s;
+  }
+  .manav li:nth-child(5){
+      transition: all 0.5s ease 0.8s;
+  }
+  .manav li:nth-child(6){
+      transition: all 0.5s ease 0.9s;
+      margin: 0;
+  }
+  .manav li:nth-child(7){
+      transition: all 0.5s ease 1s;
+      margin: 0;
+  }
+  li.fade{
+      opacity: 1;
+  }
+}
+/*Animating Hamburger Icon on Click*/
+.toggle .line1{
+  transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+  transition: all 0.7s ease;
+  width:0;
+}
+.toggle .line3{
+  transform: rotate(45deg) translate(-5px,-6px);
+}
+
+.bdr{
+width: 150px;
+height: 30px;
+border-radius: 10px;
+}
+.bdr1{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
