@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\budget;
+use App\Models\evenement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -23,7 +26,11 @@ class AuthController extends Controller
     }
     public function dashboardAdmin()
     {
-        return view('admin.dashboardAdmin');
+        $users = User::all();
+        $blogs = Blog::latest()->paginate(5);
+        $budgets = budget::all();
+        $evenements = evenement::all();
+        return view('admin.dashboardAdmin',compact('users','blogs','budgets','evenements'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
     public function dashboardClient()
     {
@@ -66,7 +73,7 @@ class AuthController extends Controller
         return redirect()->intended('dashboardAdmin');
     } elseif(Auth::attempt($credentials) && $recuperation[0]->role_id == 3){
         $request->session()->regenerate();
-        return redirect()->intended('dashboardClient');
+        return redirect()->intended('index');
     }
 
     return back()->withErrors([

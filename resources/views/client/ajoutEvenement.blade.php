@@ -29,6 +29,8 @@
 </head>
 
 <body>
+	<br>
+@include('component.navSimple')
     <h1 style="margin-top: -25px;">Evenement</h1>
 
 <div class="w3ls-login box box--big" style="margin-top: -50px;">

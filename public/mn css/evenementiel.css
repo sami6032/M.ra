@@ -1,0 +1,117 @@
+*{
+
+margin: 0px;
+padding: 0px;}
+.mia {
+    background-color: #CCCCCC;
+    font-weight: bold;
+    position: sticky;
+    top: -10px;
+    z-index: 10;
+}
+
+.imm {
+
+    width: 70%;
+    height: 500px;
+    margin-left: 15%;
+}
+
+.img_head {
+    background-color: #CCCCCC;
+}
+
+.mariage {
+display: flex;
+gap: 50px;
+
+}
+.intmar{
+    background-color: tr;
+}
+.imgprim{
+height: 600px;
+width: auto;
+border-radius: 45%;
+}
+
+.head1 {
+    width: 100%;
+    height: 500px;
+    background-color: #CCCCCC;
+}
+
+.imgheart {
+    margin-top: 50px;
+    height: 250px;
+    display: flex;
+    gap: 30px;
+    background-color: #CCCCCC;
+    justify-content: center;
+    width: 100%;
+}
+
+.textbienvenus {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-top: 50px;
+}
+
+.textmariage {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.ima {
+    width: 100%;
+    height: 600px;
+    margin-top: 10px;
+}
+
+.textanniverssaire {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.textsurprise {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.footer {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    margin-top: 10px;
+}
+
+.foot1 {
+    color: white;
+    margin-top: 60px;
+}
+
+.foot2 {
+    color: white;
+    margin-top: 50px;
+}

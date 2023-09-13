@@ -19,6 +19,12 @@ class BlogController extends Controller
         return view('blog.index',compact('blogs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+    public function blog()
+    {
+        $blog = Blog::all();
+        return view('client.blog',compact('blog'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -57,7 +63,7 @@ class BlogController extends Controller
     
         blog::create($input);
      
-        return redirect()->route('Blog.index')
+        return redirect()->route('blog.index')
                         ->with('success','Article créer avec succès');
     }
 
@@ -110,7 +116,7 @@ class BlogController extends Controller
           
         $blog->update($input);
     
-        return redirect()->route('Blog.index')
+        return redirect()->route('blog.index')
                         ->with('success','Article modifié avec succès');
     }
 
@@ -124,7 +130,7 @@ class BlogController extends Controller
     {
         $blog->delete();
      
-        return redirect()->route('Blog.index')
+        return redirect()->route('blog.index')
                         ->with('success','Article supprimé avec succès');
     }
 }

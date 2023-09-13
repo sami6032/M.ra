@@ -33,10 +33,10 @@
 
 <body>
 <div><img class="im" src="public/im.jpg" alt=""></div>
-@include('component.navbar')
+@include('component.navSimple')
     <h1>Inscrivez-vous</h1>
 
-<div class="w3ls-login box box--big">
+<div class="w3ls-login box box--big ">
 		<!-- form starts here -->
 		<form action="{{ route('admin.store') }}" method="Post" enctype="multipart/form-data">
         @csrf

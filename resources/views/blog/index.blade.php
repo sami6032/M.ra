@@ -1,13 +1,14 @@
 @extends('blog.layout')
      
 @section('content')
+<!-- <marquee behavior="" direction="">mira</marquee> -->
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Laravel 8 CRUD with Image Upload Example from scratch - ItSolutionStuff.com</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('Blog.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('blog.create') }}"> publier un nouvel article de blog</a>
             </div>
         </div>
     </div>
@@ -33,11 +34,11 @@
             <td>{{ $blog->titre }}</td>
             <td>{{ $blog->commentaire }}</td>
             <td>
-                <form action="{{ route('Blog.destroy',$blog->id) }}" method="POST">
+                <form action="{{ route('blog.destroy',$blog->id) }}" method="POST">
      
-                    <a class="btn btn-info" href="{{ route('Blog.show',$blog->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('blog.show',$blog->id) }}">Show</a>
       
-                    <a class="btn btn-primary" href="{{ route('Blog.edit',$blog->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('blog.edit',$blog->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')

@@ -56,8 +56,7 @@ class tacheController extends Controller
             
 
         ]);
-        return ('tache ajouté avec succes, </br>
-        ajoutez une autre si necessaire');
+        return ('tache assignée avec succes');
     }
    
 }

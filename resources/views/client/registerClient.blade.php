@@ -33,7 +33,7 @@
 
 <body>
 <div><img class="im" src="public/im.jpg" alt=""></div>
-@include('component.navbar') <br><br>
+@include('component.navSimple') <br><br>
     <h1 style="margin-top: -25px;">Inscrivez-vous</h1>
 
 <div class="w3ls-login box box--big" style="margin-top: -50px;">

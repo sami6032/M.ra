@@ -6,7 +6,7 @@
                 <h2>Edit Product</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('Blog.index') }}"> Retour</a>
+                <a class="btn btn-primary" href="{{ route('blog.index') }}"> Retour</a>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
         </div>
     @endif
     
-    <form action="{{ route('Blog.update',$blog->id) }}" method="POST" enctype="multipart/form-data"> 
+    <form action="{{ route('blog.update',$blog->id) }}" method="POST" enctype="multipart/form-data"> 
         @csrf
         @method('PUT')
      

@@ -128,3 +128,148 @@
     </div>
 </main>
 @endsection
+
+
+
+
+
+
+
+
+
+FORMULAIRE DE BLOG*******************************************************************************************************
+
+
+
+
+
+
+
+ 
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+	<title> Blog</title>
+	<!-- Meta-Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta-Tags -->
+	<!-- Stylesheets -->
+	<link href="/frontend/css/font-awesome.css" rel="stylesheet">
+	<link href="/frontend/css/style.css" rel='stylesheet' type='text/css' />
+	<!--// Stylesheets -->
+	<!--fonts-->
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+	<!--//fonts-->
+</head>
+
+<body>
+	<br>
+@include('component.navSimple')
+    <h1 style="margin-top: -25px;">Publier un article de blog</h1>
+
+<div class="w3ls-login box box--big" style="margin-top: -50px;">
+		<!-- form starts here -->
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+		<form action="{{ route('blog.store') }}" method="Post" enctype="multipart/form-data">
+        @csrf
+			<div class="agile-field-txt">
+				<label><i class="fa " aria-hidden="true"></i> Titre </label>
+				<input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" id="name"  name="name" placeholder="Veuillez entrer le titre de l'article" required="" />
+				@error('name')
+      			<div class="invalid-feedback">
+      			{{ $message }}
+      			</div>
+      			@enderror
+			</div>
+      
+			<div class="agile-field-txt">
+				<label><i class="fa fa-tel-alt" aria-hidden="true"></i> Commentaire </label>
+				<!-- <input type="text" class="form-control @error('numero') is-invalid @enderror" value="{{ old('description') }}" id="description" name="description" placeholder="Veuillez decrire l'evenement" required="" /> -->
+                <textarea name="commentaire" id="" class="form-control @error('commentaire') is-invalid @enderror" cols="30" value="{{ old('commentaire') }}" rows="10">
+                </textarea>
+				@error('commentaire')
+      			<div class="invalid-feedback">
+      			{{ $message }}
+      			</div>
+      			@enderror
+			</div>
+			<div class="agile-field-txt">
+				<label><i class="fa " aria-hidden="true"></i> Image </label>
+				<input type="file" class="form-control @error('image') is-invalid @enderror" value="{{ old('image') }}" id="image"  name="image" placeholder="Veuillez entrer le titre de l'article" required="" />
+				@error('image')
+      			<div class="invalid-feedback">
+      			{{ $message }}
+      			</div>
+      			@enderror
+			</div>
+      
+			</div>
+            <input type="submit" value="Valider">
+
+			<!-- script for show password -->
+			<script>
+				function myFunction() {
+					var x = document.getElementById("myInput");
+					if (x.type === "password") {
+						x.type = "text";
+					} else {
+						x.type = "password";
+					}
+				}
+			</script>
+			<!-- //end script -->
+		</form>
+	</div>
+	<!-- //form ends here -->
+	<!--copyright-->
+	
+	<!--//copyright-->
+</body>
+</html>
+
+
+
+
+	
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            

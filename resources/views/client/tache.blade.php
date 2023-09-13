@@ -29,7 +29,9 @@
 </head>
 
 <body>
-    <h1 style="margin-top:150px;"><strong>Listez toutes vos taches un a un</strong> </h1>
+<br>
+@include('component.navSimple') <br><br><br>
+    <h1 style="margin-top:50px;"><strong>Listez toutes vos taches un a un</strong> </h1>
 
 <div class="w3ls-login box box--big" style="margin-top: -50px;">
 		<!-- form starts here -->
@@ -45,6 +47,8 @@
       			@enderror
 			</div>
             <input type="submit" value="Valider">
+			<br><br><br><br><br><br><br>
+			<!-- <div style="width:100%;height:50px;background-color:black"></div> -->
            
 			<!-- //end script -->
 		</form>

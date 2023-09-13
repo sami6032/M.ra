@@ -7,6 +7,7 @@ use App\Http\Controllers\userCrudController;
 use App\Http\Controllers\eventCrudController;
 use App\Http\Controllers\afficherEventController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ParticipantController;
 use App\Models\Blog;
 
 /*
@@ -21,9 +22,10 @@ use App\Models\Blog;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 Route::get('index', [userCrudController::class,'index'])->name('index');
+Route::get('index1', [userCrudController::class,'index1'])->name('index1');
 Route::get('accueil', [AuthController::class,'accueil'])->name('accueilClient');
 
 Route::get('/dashboardAdmin', [AuthController::class, 'dashboardAdmin'])->name('dashboard');
@@ -60,12 +62,17 @@ Route::get('/assignTache1/{id}', [eventCrudController::class, 'confirm'])->name(
 Route::get('/noassignTache1/{id}', [eventCrudController::class, 'noConfirm'])->name('noConfirm');
 Route::post('/assignTache', [tacheController::class, 'storeAssign'])->name('assign');
 
+//Invitation
+Route::get('/ajoutinvite', [ParticipantController::class, 'ajoutinvite'])->name('ajoutinvite');
+Route::post('/ajoutinvite', [ParticipantController::class, 'storeparticipant'])->name('participant.store');
+
 //userCrud
 Route::get('/crud/create', [userCrudController::class, 'create'])->name('crud.create');
 Route::post('/crud', [userCrudController::class, 'store'])->name('crud.store');
 Route::get('/crud/{crud}/edit', [userCrudController::class, 'edit'])->name('crud.edit');
 Route::put('/crud/{crud}', [userCrudController::class, 'update'])->name('crud.update');
 Route::delete('/crud/{crud}', [userCrudController::class, 'destroy'])->name('crud.destroy');
+
 
 //eventCrud
 Route::get('listeEvent', [eventCrudController::class, 'listeEvent'])->name('listeEvent');
@@ -81,4 +88,8 @@ Route::put('/update', [eventCrudController::class, 'update'])->name('updateEvent
 Route::get('/detail/{id}',[afficherEventController::class,'afficher'])->name('present');
 
 //blog
-Route::resource('Blog', BlogController::class);
+Route::resource('blog', BlogController::class);
+Route::get('/Article_Blog',[BlogController::class,'blog'])->name('article_blog');
+
+//Testimoniales
+Route::get('/Testimoniale',[eventController::class,'Testimoniale'])->name('Testimoniale');
