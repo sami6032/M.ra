@@ -100,6 +100,7 @@
 			</div>
       
 			</div>
+			
             <input type="submit" value="Valider">
 
 			<!-- script for show password -->

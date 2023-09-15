@@ -20,7 +20,7 @@ class evenement extends Model
         return $this->belongsTo(User::class);
         }
     public function participants(){
-        return $this->hasMany(Participant::class);
+        return $this->belongsTo(Participant::class);
         }
     public function budgets(){
         return $this->belongsTo(budget::class);

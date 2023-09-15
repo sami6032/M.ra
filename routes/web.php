@@ -7,6 +7,7 @@ use App\Http\Controllers\userCrudController;
 use App\Http\Controllers\eventCrudController;
 use App\Http\Controllers\afficherEventController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\TestimonialeController;
 use App\Http\Controllers\ParticipantController;
 use App\Models\Blog;
 
@@ -92,4 +93,10 @@ Route::resource('blog', BlogController::class);
 Route::get('/Article_Blog',[BlogController::class,'blog'])->name('article_blog');
 
 //Testimoniales
-Route::get('/Testimoniale',[eventController::class,'Testimoniale'])->name('Testimoniale');
+Route::get('/Testimoniale',[TestimonialeController::class,'Testimoniale'])->name('Testimoniale');
+Route::get('/AjoutTestimoniale',[TestimonialeController::class,'AjoutTestimoniale'])->name('AjoutTestimoniale');
+Route::post('/AjoutTestimoniale', [TestimonialeController::class, 'storeTestimoniale'])->name('testi.store');
+
+//carte
+Route::get('/carte',[ParticipantController::class,'carte'])->name('carte');
+Route::get('/carte1',[ParticipantController::class,'carte1'])->name('carte1');

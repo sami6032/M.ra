@@ -13,10 +13,7 @@ class eventController extends Controller
     {
         return view('client/ajoutEvenement');
     }
-    public function Testimoniale()
-    {
-        return view('client/testimoniale');
-    }
+   
 
     public function storeEvent(Request $request)
     {

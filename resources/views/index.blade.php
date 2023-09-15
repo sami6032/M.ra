@@ -88,7 +88,7 @@
           
           <li><a href="{{ route('listeEvent') }}">Mes evenements</a></li>
           <!-- <li><a href="pricing.html">Pricing</a></li>-->
-          <li><a href="portfolio.html">Testimonials</a></li> 
+          <li><a href="{{ route('Testimoniale') }}">Testimoniales</a></li> 
           <li><a href="{{ route('article_blog') }}">Blog</a></li>
           <li class="dropdown"><a href="#"><span>evnements</span> <i class="bi bi-chevron-down"></i></a>
             <ul>

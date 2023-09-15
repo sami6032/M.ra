@@ -35,6 +35,9 @@ class User extends Authenticatable
     public function budgets(){
         return $this->hasMany(budget::class);
         }
+    public function testimoniales(){
+        return $this->hasMany(Testimoniale::class);
+        }
 
     /**
      * The attributes that should be hidden for arrays.

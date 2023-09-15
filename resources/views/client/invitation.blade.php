@@ -40,6 +40,7 @@
         @csrf
 			<div class="agile-field-txt">
 				<label><i class="fa fa-user" aria-hidden="true"></i> Nom </label>
+				<!--  -->
 				<input type="text" class="form-control @error('nom') is-invalid @enderror" value="{{ old('nom') }}" id="nom"  name="nom" placeholder="Veuillez entrer le nom de l'invité" required="" />
 				@error('nom')
       			<div class="invalid-feedback">
@@ -57,27 +58,24 @@
       			@enderror
 			</div>
             
-            <!-- <div class="agile-field-txt">
-				<label><i class="fa fa-envelope" aria-hidden="true"></i> Email </label>
-				<input type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" name="email" placeholder="Veuillez entrer votre email" required="" />
-				@error('email')
-      			<div class="invalid-feedback">
-      			{{ $message }}
-      			</div>
-      			@enderror
-			</div> -->
+			<div class="form-floating" style="width: 100%;">
+		<label for="" > Choisir l'evenement correspondante </label>
+    <select class="form-control @error('evenement') is-invalid @enderror" id="evenement_id" name="evenement_id" style="background-color: black ;" >
+      @foreach($evenements as $evenement)
+      <option value="{{ $evenement->id }}">{{ $evenement->titre }}</option>
+      @endforeach
+    <!-- Ajoutez plus d'options ici si nécessaire -->
+    </select>
+      
+      @error('evenement')
+      <div class="invalid-feedback">
+      {{ $message }}
+      </div>
+      @enderror
 
-            <!-- <div class="agile-field-txt">
-				<label><i class="fa fa-phone" aria-hidden="true"></i> Numero </label>
-				<input type="number" class="form-control @error('numero') is-invalid @enderror" value="{{ old('numero') }}" id="numero" name="numero" placeholder="Veuillez saisir votre numero de téléphone" required="" />
-				@error('numero')
-      			<div class="invalid-feedback">
-      			{{ $message }}
-      			</div>
-      			@enderror
-		    </div>	 -->
-	</div>
-            <input type="submit" value="Inscription">
+     
+	</div> 
+            <input style="margin-top:30px"; type="submit" value="Valider">
 
 			<!-- script for show password -->
 			<script src="stylenav/nav.js"></script>

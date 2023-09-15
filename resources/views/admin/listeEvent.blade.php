@@ -154,7 +154,7 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>numero</th>
+                    
                     <th>titre</th>
 
 
@@ -164,8 +164,6 @@
                   @foreach ($taches as $tache)
 
                   <tr>
-
-                    <td>{{ $tache->id }}</td>
                     <td>{{ $tache->nom }}</td>
 
 
@@ -268,61 +266,6 @@
   </div>
   </div>
 
-  <!-- <div class="container">
-  <div class="row">
-    <div class="col-12 grid-margin">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Liste des evenements</h4>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>id</th>
-                  <th>titre</th>
-                  <th>date</th>
-                  <th>lieu</th>
-                  <th>description</th>
-                  <th>nombre_invite</th>
-                  <th>budget</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($evenements as $evenement)
-
-                <tr>
-
-                  <td>{{ $evenement->id }}</td>
-                  <td>{{ $evenement->titre }}</td>
-                  <td>{{ $evenement->date }}</td>
-                  <td>{{ $evenement->lieu }}</td>
-                  <td>{{ $evenement->description }}</td>
-                  <td>{{ $evenement->nombre_invite}}</td>
-                  <td>{{ $evenement->entres }}</td>
-
-
-
-                  <td>
-                    <a href="{{ url('detail/'.$evenement->id)}}" class="btn btn-success">Afficher</a>
-                    <a href="{{ route('edit', $evenement) }}" class="btn btn-primary">Modifier</a>
-                    <a href="{{ route('destroy.event', $evenement->id) }}" style="display: inline;">
-
-                      <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet evenement ?')">Supprimer</button>
-                    </a>
-
-                  </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div> -->
-
 <br><br>
   <div class="container">
   <div class="row">
@@ -334,7 +277,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>id</th>
+                  
                   <th>titre</th>
                   <th>date</th>
                   <th>lieu</th>
@@ -351,7 +294,7 @@
 
                 <tr>
 
-                  <td>{{ $budget->id }}</td>
+                  
                   <td>{{ $budget->evenement->titre }}</td>
                   <td>{{ $budget->evenement->date }}</td>
                   <td>{{ $budget->evenement->lieu }}</td>
@@ -382,52 +325,50 @@
     </div>
   </div>
   </div>
-
-
-
-  </table>
+<br><br>
   <div class="container">
-    <form action="{{ route('logout') }}" method="post" class="btn btn-success">
-      @csrf
-      <input type="submit" value="deconnexion">
-    </form>
-  </div> <br>
-
-
   <div class="row">
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Recent Tickets</h4>
+          <h4 class="card-title">Liste des invités</h4>
+          <th><a href="{{ route('ajoutinvite') }}" class="btn btn-success">Ajouter un invité</a></th>
+
           <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
-                  <th>id</th>
-                  <th>titre</th>
-                  <th>date</th>
-                  <th>lieu</th>
-                  <th>description</th>
-                  <th>nombre_invite</th>
-                  <th>entres</th>
+                  
+                  <th>Nom</th>
+                  <th>Prenom</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
+                @foreach ($participants as $participant)
+
                 <tr>
+         
+                  <!-- <td>{{ $participant->evenement_id}}</td>
+                  <td>{{ $participant->user_id}}</td> -->
+                  <td>{{ $participant->nom }}</td>
+                  <td>{{ $participant->prenom }}</td>
+                  <td>{{ $participant->reste }}</td>
+
                   <td>
+                    <a href="" class="btn btn-success">Carte d'invitation</a>
+                    <a href="" class="btn btn-primary">Telecharger</a>
+                    <a href="" class="btn btn-danger">Accepté</a>
+                    <!-- <a href="" style="display: inline;">
+
+                      <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet evenement ?')">Supprimer</button>
+                    </a> -->
 
                   </td>
-                  <td> Fund is not recieved </td>
-                  <td>
-                    <label class="badge badge-gradient-success">DONE</label>
-                  </td>
-                  <td> Dec 5, 2017 </td>
-                  <td> WD-12345 </td>
-                </tr>
-                <tr>
+
 
                 </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -436,6 +377,83 @@
     </div>
   </div>
   </div>
+
+
+
+  </table>
+   <br>
+
+
+ 
+  </div>
   </div>
 
   </div>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>M.ra Mark</h3>
+           
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Marketing</h4>
+            
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Evenementiel</h4>
+           
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Laisser un commentaire</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>M.ra Event</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/ -->
+          Designed by <a href=""> M.ra Mark</a>
+        </div>
+      </div>
+    
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assetes/vendor/aos/aos.js"></script>
+  <script src="assetes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assetes/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assetes/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assetes/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assetes/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assetes/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assetes/js/main.js"></script>
+
+</body>
+
+</html>

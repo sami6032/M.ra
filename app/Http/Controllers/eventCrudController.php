@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\assign_tache;
 use App\Models\budget;
 use App\Models\evenement;
+use App\Models\Participant;
 use App\Models\tache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -103,7 +104,8 @@ class eventCrudController extends Controller
         $budgets = budget::where('user_id',Auth::user()->id)->get();
         $taches = tache::where('user_id',Auth::user()->id)->get();
         $evenements = evenement::where('user_id',Auth::user()->id)->get();
-        return view('admin.listeEvent',compact('evenements','budgets','assign_taches','taches'));
+        $participants = Participant::where('user_id',Auth::user()->id)->get();
+        return view('admin.listeEvent',compact('evenements','budgets','assign_taches','taches','participants'));
     }
    
 
