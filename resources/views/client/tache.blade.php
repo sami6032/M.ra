@@ -30,10 +30,22 @@
 
 <body>
 <br>
-@include('component.navSimple') <br><br><br>
+@include('component.navSimple') <br><br>
     <h1 style="margin-top:50px;"><strong>Listez toutes vos taches un a un</strong> </h1>
-
-<div class="w3ls-login box box--big" style="margin-top: -50px;">
+<!-- tttt -->
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-block">
+    <button style="border-color: none;color:white; background-color:transparent ;" type="button" class="close" data-dismiss="alert"><strong>{{ $message }}</strong> 
+	<!-- <div class="alert alert-success d-flex align-items-center" role="alert">
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  <div>
+  {{ $message }}
+  </div>
+</div> -->
+</button>    
+</div>
+@endif
+<div class="w3ls-login box box--big" style="margin-top: -30px;">
 		<!-- form starts here -->
 		<form action="{{ route('tache') }}" method="Post">
             @csrf

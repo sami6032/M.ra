@@ -67,7 +67,7 @@
     <div class="container d-flex justify-content-between">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.html"><img width="95px" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
+        <h1 class="text-light"><a href="index.html"><img  height="350px" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -86,31 +86,36 @@
                 </ul>
               </li> -->
           
-          <li><a href="{{ route('listeEvent') }}">Mes evenements</a></li>
+         
           <!-- <li><a href="pricing.html">Pricing</a></li>-->
           <li><a href="{{ route('Testimoniale') }}">Testimoniales</a></li> 
           <li><a href="{{ route('article_blog') }}">Blog</a></li>
           <li class="dropdown"><a href="#"><span>evnements</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               
-              <li class="dropdown"><a href="#"><span>Le gerer moi meme</span> <i class="bi bi-chevron-right"></i></a>
+              <li class="dropdown"><a href="#"><span>Nouvel évènement</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="{{ route('ajoutache') }}">Lister toutes vos taches</a></li>
-                  <li><a href="{{ route('ajoutevent') }}">Creer votre evenement</a></li>
+                  <li><a href="{{ route('ajoutevent') }}">Creer votre évènement</a></li>
                  
                   
                 </ul>
               </li>
-              <li class="dropdown"><a href="#"><span>Le gerer partiellement</span> <i class="bi bi-chevron-right"></i></a>
+              
+              <li class="dropdown"><a href="#"><span>Impliquer un expert</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Veuillez remplir ce champs</a></li>
+                  <li><a href="#">Discuter avec l'admin </a></li>
                  
-
+                  
                 </ul>
               </li>
-              <li class="dropdown"><a href="#"><span>Le Confier à des experts</span> <i class="bi bi-chevron-right"></i></a>
+              <li class="dropdown"><a href="{{ route('listeEvent') }}"><span>Mes évènements</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Discuter directement avec l'admin par le chat privé </a></li>
+                  <li><a href="{{ route('listeTache') }}">Liste des taches</a></li>
+                  <li><a href="{{ route('gererTache') }}">Gestion des taches</a></li>
+                  <li><a href="{{ route('gererBudget') }}">Gestion des depenses</a></li>
+                  <li><a href="{{ route('gererParticipant') }}">Gestion des invitations</a></li>
+       
                  
                   
                 </ul>
@@ -124,13 +129,31 @@
           <li>
                         @guest
                             @if (Route::has('login'))
-                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #f8f6f5;border-color:#f8f6f5;  " >Connexion</button></span> </a>
+                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #A8B8C7; color:white ; border-color:transparent; " >Connexion</button></span> </a>
+                        
+                        <!-- <div class="col-lg-3 cta-btn-container text-center">
+                            <a class="cta-btn align-middle" href="{{ route('login') }}">Connexion</a>
+                        </div> -->
                         @endif
 
                         
                        
                         @else
-                        <a href="{{ route('logout') }}"> <span><button style="width: 100px; height:35px; background: #f8f6f5;border-color:#f8f6f5;  " >Deconnexion</button></span> </a>
+                        <!-- <a href="" class="login"><i></i>{{ Auth::user()->name }} </a> -->
+                     <li>   <a href="{{ route('profil') }}"> 
+                      <span>
+                      <i class="fa fa-user"></i>
+                     @auth
+                     <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
+                     <!-- <div class="nav-profile-image">
+                     <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
+                  <span class="login-status online"></span>
+                  change to offline or busy as needed
+                </div>
+                    {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
+                    @endauth -->
+                   </a></li>
+                       <li> <a href="{{ route('logout') }}"> <span><button style="width: 100px; height:35px; background: rgb(230 45 54);color:white ;border-color:transparent;  " >Deconnexion</button></span> </a></li>
                           @csrf
                          </form>
                          @endguest
@@ -275,43 +298,43 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="icon-box" data-aos="fade-up">
-              <div class="icon"><i class="bi bi-briefcase"></i></div>
+              <div class="icon"><img width="48" height="48" src="https://img.icons8.com/color/48/wedding-rings.png" alt="wedding-rings"/></i></div>
               <h4 class="title"><a href="">Mariage</a></h4>
               <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon"><i class="bi bi-card-checklist"></i></div>
+              <div class="icon"><img width="48" height="48" src="https://img.icons8.com/emoji/48/birthday-cake-emoji.png" alt="birthday-cake-emoji"/></i></div>
               <h4 class="title"><a href="">Anniversaire</a></h4>
               <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><i class="bi bi-bar-chart"></i></div>
+              <div class="icon"><img width="64" height="64" src="https://img.icons8.com/arcade/64/give-gift.png" alt="give-gift"/></i></div>
               <h4 class="title"><a href="">Surprise Event</a></h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><i class="bi bi-binoculars"></i></div>
+              <div class="icon"><<img width="50" height="50" src="https://img.icons8.com/ios-filled/50/000000/meeting.png" alt="meeting"/></i></div>
               <h4 class="title"><a href="">Rencontre d'affaire</a></h4>
               <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon"><i class="bi bi-brightness-high"></i></div>
+              <div class="icon"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/000000/sun-lounger.png" alt="sun-lounger"/></i></div>
               <h4 class="title"><a href="">Sorties detentes</a></h4>
               <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-              <h4 class="title"><a href="">Deccès</a></h4>
+              <div class="icon"><img width="64" height="64" src="https://img.icons8.com/external-justicon-lineal-justicon/64/external-death-funeral-justicon-lineal-justicon.png" alt="external-death-funeral-justicon-lineal-justicon"/></i></div>
+              <h4 class="title"><a href="">Decès</a></h4>
               <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
             </div>
           </div>
@@ -329,7 +352,7 @@
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">Gateaux</li>
-              <li data-filter=".filter-card">Vins</li>
+              <li data-filter=".filter-card">Salles</li>
               <li data-filter=".filter-web">Champagnes</li>
             </ul>
           </div>

@@ -7,8 +7,10 @@ use App\Http\Controllers\userCrudController;
 use App\Http\Controllers\eventCrudController;
 use App\Http\Controllers\afficherEventController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\TestimonialeController;
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\gestionController;
 use App\Models\Blog;
 
 /*
@@ -28,6 +30,7 @@ Route::get('/', function () {
 Route::get('index', [userCrudController::class,'index'])->name('index');
 Route::get('index1', [userCrudController::class,'index1'])->name('index1');
 Route::get('accueil', [AuthController::class,'accueil'])->name('accueilClient');
+Route::get('profil', [AuthController::class,'profil'])->name('profil');
 
 Route::get('/dashboardAdmin', [AuthController::class, 'dashboardAdmin'])->name('dashboard');
 Route::get('/dashboardClient', [AuthController::class, 'dashboardClient'])->name('dashboardClient');
@@ -100,3 +103,13 @@ Route::post('/AjoutTestimoniale', [TestimonialeController::class, 'storeTestimon
 //carte
 Route::get('/carte',[ParticipantController::class,'carte'])->name('carte');
 Route::get('/carte1',[ParticipantController::class,'carte1'])->name('carte1');
+
+//gestion
+Route::get('listeTache', [gestionController::class, 'listeTache'])->name('listeTache');
+Route::get('gererTache', [gestionController::class, 'gererTache'])->name('gererTache');
+Route::get('gererBudget', [gestionController::class, 'gererBudget'])->name('gererBudget');
+Route::get('gererParticipant', [gestionController::class, 'gererParticipant'])->name('gererParticipant');
+
+//test 
+///test fin
+Route::resource('budget', BudgetController::class);

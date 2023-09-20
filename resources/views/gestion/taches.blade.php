@@ -159,39 +159,7 @@
 
     </div>
   </header><br><br>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 grid-margin">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Liste des taches</h4>
-            <th><a href="{{ route('ajoutache') }}" class="btn btn-success">Creer des taches</a></th>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    
-                    <th>titre</th>
 
-
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($taches as $tache)
-
-                  <tr>
-                    <td>{{ $tache->nom }}</td>
-
-
-                  </tr>
-                  @endforeach
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <br><br><br><br>
     <div class="container">
@@ -282,117 +250,7 @@
   </div>
   </div>
 
-<br><br>
-  <div class="container">
-  <div class="row">
-    <div class="col-12 grid-margin">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Liste des evenements</h4>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  
-                  <th>titre</th>
-                  <th>date</th>
-                  <th>lieu</th>
-                  <th>description</th>
-                  <th>nombre_invite</th>
-                  <th>budget</th>
-                  <th></th>
-                  <th></th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($budgets as $budget)
 
-                <tr>
-
-                  
-                  <td>{{ $budget->evenement->titre }}</td>
-                  <td>{{ $budget->evenement->date }}</td>
-                  <td>{{ $budget->evenement->lieu }}</td>
-                  <td>{{ $budget->evenement->description }}</td>
-                  <td>{{ $budget->evenement->nombre_invite}}</td>
-                  <td>{{ $budget->entres }}</td>
-                  <td>{{ $budget->sorties }}</td>
-                  <td>{{ $budget->reste }}</td>
-
-                  <td>
-                    <a href="{{ url('detail/'.$evenement->id)}}" class="btn btn-success">Afficher</a>
-                    <a href="{{ route('edit', $evenement) }}" class="btn btn-primary">Modifier</a>
-                    <a href="{{ route('destroy.event', $evenement->id) }}" style="display: inline;">
-
-                      <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet evenement ?')">Supprimer</button>
-                    </a>
-
-                  </td>
-
-
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-<br><br>
-  <div class="container">
-  <div class="row">
-    <div class="col-12 grid-margin">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Liste des invités</h4>
-          <th><a href="{{ route('ajoutinvite') }}" class="btn btn-success">Ajouter un invité</a></th>
-
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  
-                  <th>Nom</th>
-                  <th>Prenom</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($participants as $participant)
-
-                <tr>
-         
-                  <!-- <td>{{ $participant->evenement_id}}</td>
-                  <td>{{ $participant->user_id}}</td> -->
-                  <td>{{ $participant->nom }}</td>
-                  <td>{{ $participant->prenom }}</td>
-                  <td>{{ $participant->reste }}</td>
-
-                  <td>
-                    <a href="" class="btn btn-success">Carte d'invitation</a>
-                    <a href="" class="btn btn-primary">Telecharger</a>
-                    <a href="" class="btn btn-danger">Accepté</a>
-                    <!-- <a href="" style="display: inline;">
-
-                      <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet evenement ?')">Supprimer</button>
-                    </a> -->
-
-                  </td>
-
-
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
 
 
 

@@ -24,6 +24,10 @@ class AuthController extends Controller
     {
         return view('client.accueil');
     }
+    public function profil()
+    {
+        return view('client.profil');
+    }
     public function dashboardAdmin()
     {
         $users = User::all();

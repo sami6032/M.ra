@@ -18,7 +18,7 @@
 
   <!-- Vendor CSS Files -->
   <link href="assetes/vendor/animate.css/animate.min.css" rel="stylesheet">
-
+  <link href="assetes/vendor/aos/aos.css" rel="stylesheet">
   <link href="assetes/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assetes/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assetes/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -67,7 +67,7 @@
     <div class="container d-flex justify-content-between">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.html"><img width="95px" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
+        <h1 class="text-light"><a href="index.html"><img  height="350px" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -86,31 +86,36 @@
                 </ul>
               </li> -->
           
-          <li><a href="{{ route('listeEvent') }}">Mes evenements</a></li>
+         
           <!-- <li><a href="pricing.html">Pricing</a></li>-->
-          <li><a href="portfolio.html">Testimonials</a></li> 
+          <li><a href="{{ route('Testimoniale') }}">Testimoniales</a></li> 
           <li><a href="{{ route('article_blog') }}">Blog</a></li>
           <li class="dropdown"><a href="#"><span>evnements</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               
-              <li class="dropdown"><a href="#"><span>Le gerer moi meme</span> <i class="bi bi-chevron-right"></i></a>
+              <li class="dropdown"><a href="#"><span>Nouvel évènement</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="{{ route('ajoutache') }}">Lister toutes vos taches</a></li>
-                  <li><a href="{{ route('ajoutevent') }}">Creer votre evenement</a></li>
+                  <li><a href="{{ route('ajoutevent') }}">Creer votre évènement</a></li>
                  
                   
                 </ul>
               </li>
-              <li class="dropdown"><a href="#"><span>Le gerer partiellement</span> <i class="bi bi-chevron-right"></i></a>
+              
+              <li class="dropdown"><a href="#"><span>Impliquer un expert</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Veuillez remplir ce champs</a></li>
+                  <li><a href="#">Discuter avec l'admin </a></li>
                  
-
+                  
                 </ul>
               </li>
-              <li class="dropdown"><a href="#"><span>Le Confier à des experts</span> <i class="bi bi-chevron-right"></i></a>
+              <li class="dropdown"><a href="{{ route('listeEvent') }}"><span>Mes évènements</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Discuter directement avec l'admin par le chat privé </a></li>
+                  <li><a href="{{ route('listeTache') }}">Liste des taches</a></li>
+                  <li><a href="{{ route('gererTache') }}">Gestion des taches</a></li>
+                  <li><a href="{{ route('gererBudget') }}">Gestion des depenses</a></li>
+                  <li><a href="{{ route('gererParticipant') }}">Gestion des invitations</a></li>
+       
                  
                   
                 </ul>
@@ -124,13 +129,25 @@
           <li>
                         @guest
                             @if (Route::has('login'))
-                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #f8f6f5;border-color:#f8f6f5;  " >Connexion</button></span> </a>
+                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #A8B8C7; color:white ; border-color:transparent; " >Connexion</button></span> </a>
+                        
+                        <!-- <div class="col-lg-3 cta-btn-container text-center">
+                            <a class="cta-btn align-middle" href="{{ route('login') }}">Connexion</a>
+                        </div> -->
                         @endif
 
                         
                        
                         @else
-                        <a href="{{ route('logout') }}"> <span><button style="width: 100px; height:35px; background: #f8f6f5;border-color:#f8f6f5;  " >Deconnexion</button></span> </a>
+                        <!-- <a href="" class="login"><i></i>{{ Auth::user()->name }} </a> -->
+                     <li>   <a href=""> 
+                      <span>
+                      <i class="fa fa-user"></i>
+                     @auth
+                    {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
+                    @endauth
+                   </a></li>
+                       <li> <a href="{{ route('logout') }}"> <span><button style="width: 100px; height:35px; background: rgb(230 45 54);color:white ;border-color:transparent;  " >Deconnexion</button></span> </a></li>
                           @csrf
                          </form>
                          @endguest

@@ -43,7 +43,7 @@
 		<form action="{{ route('loginl') }}" method="post">
       @csrf
 			<div class="agile-field-txt">
-				<label><i class="fa fa-user" aria-hidden="true"></i> Email </label>
+				<label><i class="fa fa-enveloppe" aria-hidden="true"></i> Email </label>
 				<input type="email" name="email" placeholder="Entrez votre Email"  />
 				@error('email')
 		<div class="invalid-feedback ">{{ $message }}</div>

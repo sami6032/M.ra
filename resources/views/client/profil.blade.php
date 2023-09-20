@@ -140,12 +140,18 @@
                        
                         @else
                         <!-- <a href="" class="login"><i></i>{{ Auth::user()->name }} </a> -->
-                     <li>   <a href=""> 
+                     <li>   <a href="{{ route('profil') }}"> 
                       <span>
                       <i class="fa fa-user"></i>
                      @auth
+                     <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
+                     <!-- <div class="nav-profile-image">
+                     <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
+                  <span class="login-status online"></span>
+                  change to offline or busy as needed
+                </div>
                     {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
-                    @endauth
+                    @endauth -->
                    </a></li>
                        <li> <a href="{{ route('logout') }}"> <span><button style="width: 100px; height:35px; background: rgb(230 45 54);color:white ;border-color:transparent;  " >Deconnexion</button></span> </a></li>
                           @csrf
@@ -158,91 +164,103 @@
       </nav><!-- .navbar -->
 
     </div>
-  </header><!-- End Header -->
-
-  <div class="section-header text-center">
-<img src="{{asset('frontend/images/web.png')}}" class="d-block-center " style="width: 100%; ;height: auto;" alt="...">
-</div>
-  <main id="main">
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-      @foreach($testimoniales as $testimoniale)
-        <div class="row">
-          <div class="col-lg-6-center " data-aos="fade-up">
-          
-            <div class="testimonial-item">
-            
-              <img src="{{ asset('storage/picture/' . $testimoniale->user->photo) }}" class="testimonial-img" alt="">
-              <h3>{{ $testimoniale->user->nom }} {{ $testimoniale->user->prenom }}</h3>
-              
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                {{ $testimoniale->message }}
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                <div class="read-more">
-                  <button style="width: 130px; height:35px; background: #f8f6f5;border-color:#f8f6f5;"><a href="">Commentaires +</a></button>
+  </header>
+        <!-- Page Header section start here -->
+        <div class="pageheader-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="pageheader-content text-center">
+                        <h2>{{ Auth::user()->nom }} {{ Auth::user()->prenom }}</h2>
+                       
+                    </div>
                 </div>
-              </p>
             </div>
-            
-          </div>
-
         </div>
-        @endforeach
+    </div>
+    <!-- Page Header section ending here -->
 
-      </div>
-    </section><!-- End Testimonials Section -->
 
-  </main><!-- End #main -->
+    <!-- instructor Single Section Starts Here -->
+    <section class="instructor-single-section padding-tb section-bg">
+		<div class="container">
+			<div class="instructor-wrapper">
+				<div class="instructor-single-top">
+					<div class="instructor-single-item d-flex flex-wrap" style="gap: 200px;">
+						<div class="instructor-single-thumb">
+							<img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 500px;"; >
+						</div>
+						<div style="display: flex; flex-direction:column;">
+						<p class="ins-dege">Mes informations</p>
+						
+						<div class="instructor-single-content">
+							
+							
+								<li class="d-flex flex-wrap justify-content-start">
+									<span class="list-name">Email : </span>
+									<span class="list-attr">{{ Auth::user()->email }}</span>
+								</li>
+								<li class="d-flex flex-wrap justify-content-start">
+									<span class="list-name">Phone : </span>
+									<span class="list-attr">{{ Auth::user()->numero }}</span>
+								</li>
+								
+						
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <!-- instructor Single Section Ends Here -->
 
- <!-- ======= Footer ======= -->
- <footer id="footer">
+	<footer id="footer">
 
 <div class="footer-top">
   <div class="container">
-    <div class="row">
+	<div class="row">
 
-      <div class="col-lg-3 col-md-6 footer-contact">
-        <h3>M.ra Mark</h3>
-       
-      </div>
+	  <div class="col-lg-3 col-md-6 footer-contact">
+		<h3>M.ra Mark</h3>
+	   
+	  </div>
 
-      <div class="col-lg-2 col-md-6 footer-links">
-        <h4>Marketing</h4>
-        
-      </div>
+	  <div class="col-lg-2 col-md-6 footer-links">
+		<h4>Marketing</h4>
+		
+	  </div>
 
-      <div class="col-lg-3 col-md-6 footer-links">
-        <h4>Evenementiel</h4>
-       
-      </div>
+	  <div class="col-lg-3 col-md-6 footer-links">
+		<h4>Evenementiel</h4>
+	   
+	  </div>
 
-      <div class="col-lg-4 col-md-6 footer-newsletter">
-        <h4>Join Our Newsletter</h4>
-        <p>Laisser un commentaire</p>
-        <form action="" method="post">
-          <input type="email" name="email"><input type="submit" value="Subscribe">
-        </form>
-      </div>
+	  <div class="col-lg-4 col-md-6 footer-newsletter">
+		<h4>Join Our Newsletter</h4>
+		<p>Laisser un commentaire</p>
+		<form action="" method="post">
+		  <input type="email" name="email"><input type="submit" value="Subscribe">
+		</form>
+	  </div>
 
-    </div>
+	</div>
   </div>
 </div>
 
 <div class="container d-md-flex py-4">
 
   <div class="me-md-auto text-center text-md-start">
-    <div class="copyright">
-      &copy; Copyright <strong><span>M.ra Event</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/ -->
-      Designed by <a href=""> M.ra Mark</a>
-    </div>
+	<div class="copyright">
+	  &copy; Copyright <strong><span>M.ra Event</span></strong>. All Rights Reserved
+	</div>
+	<div class="credits">
+	  <!-- All the links in the footer should remain intact. -->
+	  <!-- You can delete the links only if you purchased the pro version. -->
+	  <!-- Licensing information: https://bootstrapmade.com/license/ -->
+	  <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/ -->
+	  Designed by <a href=""> M.ra Mark</a>
+	</div>
   </div>
 
 </footer><!-- End Footer -->

@@ -25,8 +25,7 @@ class tacheController extends Controller
             'nom'=> $request->nom,
             'user_id'=> 1,
         ]);
-        return ('tache ajouté avec succes, </br>
-        ajoutez une autre si necessaire');
+        return redirect()->route('ajoutache')->with('success','tache ajouté avec succes,ajoutez une autre si necessaire');
     }
     // public function assignTache()
     // {

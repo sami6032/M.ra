@@ -16,7 +16,16 @@
 
 
 
-<div class="d-flex justify-content-center"><img  width="45%" src="{{asset('frontend/images/lllmmmm.png')}}" alt="">bonjour
+<div class="d-flex justify-content-center"><img  width="100%" src="{{asset('frontend/images/lllmmmm.png')}}" alt="">
+    <div class="d-flex">
+    <h1 style="margin: -550px 0px 0px 150px ">INVITATION</h1>
+    <h3 class="u-text u-text-2">Chers Maiga Samira,</h3>
+    <h4 class="u-align-justify u-text u-text-1">
+        Vous êtes cordialement invité(e) au mariage de Rose & Nicola <br> qui se tiendra le 10 Septembre 2023 à la Mairie de Koudougou. <br>Votre présence rendra ce jour encore plus spécial.<br>
+
+    </h4>
+
+    </div>
 </div>
 
 
