@@ -175,7 +175,7 @@
             @foreach($blog as $blog)
 
               <div class="entry-img">
-            <img src="/image/{{ $blog->image }}" class="img-fluid">>
+            <img src="/image/{{ $blog->image }}" class="img-fluid">
                 <!-- <img src="assetes/img/blog/blog-1.jpg" alt="" class="img-fluid"> -->
 
               </div>

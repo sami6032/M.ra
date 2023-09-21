@@ -27,8 +27,7 @@
   <link rel="stylesheet" href="mn css/style.css">
   <link rel="stylesheet" href="mn css/evenementiel.css">
   <link rel="stylesheet" href="CSS/bootstrap.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> 
+  
   <link rel="shortcut icon" href="{{ asset('frontend/images/LOGO.png') }}" />
 
   <!-- Template Main CSS File -->
@@ -158,10 +157,15 @@
       </nav><!-- .navbar -->
 
     </div>
-  </header><br><br>
-
-
-    <br><br><br><br>
+  </header>
+  <br><br>
+    @if ($message = Session::get('success'))
+<div class="alert  text-center alert-block">
+    <button style="border-color: transparent;color:#198754; background-color:transparent ;" type="button" class="close " data-dismiss="alert"><strong>{{ $message }}</strong> 
+	
+</button>    
+</div>
+@endif
     <div class="container">
     <div class="row">
       <div class="col-12 grid-margin">

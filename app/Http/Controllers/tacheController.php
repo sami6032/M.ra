@@ -55,7 +55,8 @@ class tacheController extends Controller
             
 
         ]);
-        return ('tache assignée avec succes');
+        return redirect()->route('gererTache')->with('success','tache assignée avec succes');
+
     }
    
 }

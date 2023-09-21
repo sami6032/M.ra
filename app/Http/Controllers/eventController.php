@@ -42,6 +42,8 @@ class eventController extends Controller
                 'user_id' => Auth::user()->id,
                 'evenement_id'=> $evenement->id
             ]);
-        return ('ok');
+
+            return redirect()->route('gererTache')->with('success',' Evènement crée avec succès. Gerer vos taches à présent');
+
     }
 }

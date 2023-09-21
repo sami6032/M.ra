@@ -41,8 +41,8 @@
 
 <section id="breadcrumbs" class="breadcrumbs">
       <div class="container d-flex ">
-      <div style="width: 95px; margin-top:0px; margin-left:60px">
-            <a href=""><img width="95px" src="frontend/images/LOGO.png" alt="Logo Image"></a>
+      <div style="width: 95px; margin-top:-15px; margin-left:60px">
+            <a href=""><img width="65px" src="frontend/images/LOGO.png" alt="Logo Image"></a>
         </div>
         <div class="d-flex justify-content-between align-items-center">
           

@@ -671,13 +671,13 @@ section {
   transition: 0.4s;
   margin: 10px;
   border-radius: 4px;
-  border: 2px solid #db56a4;
-  color: #db56a4;
+  border: 2px solid #1D1613;
+  color: #1D1613;
   background: #fff;
 }
 
 .cta .cta-btn:hover {
-  background: #db56a4;
+  background: #1D1613;
   color: #fff;
 }
 
@@ -720,9 +720,9 @@ section {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 72px;
-  height: 72px;
-  background: #db56a4;
+  width: 90px;
+  height: 90px;
+  background: #9e9b9a;
 }
 
 .services .icon i {
@@ -744,15 +744,15 @@ section {
 
 .services .icon-box:hover .icon {
   background: #fff;
-  border: 2px solid #db56a4;
+  border: 2px solid #444444;
 }
 
 .services .icon-box:hover .icon i {
-  color: #db56a4;
+  color: #444444;
 }
 
 .services .icon-box:hover .title a {
-  color: #db56a4;
+  color: #444444;
 }
 
 .services .description {
@@ -778,7 +778,7 @@ section {
   font-weight: 400;
   line-height: 1;
   text-transform: uppercase;
-  color: #4d4643;
+  color: #9e9b9a;
   transition: all 0.3s;
   border-radius: 50px;
 }
@@ -786,7 +786,7 @@ section {
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
   color: #fff;
-  background: #db56a4;
+  background: #444444;
 }
 
 .portfolio #portfolio-flters li:last-child {

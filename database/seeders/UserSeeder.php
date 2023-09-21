@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'prenom'=>'Samira',
             'role_id'=> 1,
             'numero'=> 60320054,
-            'photo'=> asset('frontend/images/03.jpg') ,
+            'photo'=> 'frontend/images/03.jpg' ,
             'email'=>'admin@gmail.com',
             'password' => Hash::make('1234')// password
         ]);

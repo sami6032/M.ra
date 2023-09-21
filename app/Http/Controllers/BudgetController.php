@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\budget;
+use App\Models\depense;
+use App\Models\evenement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BudgetController extends Controller
 {
@@ -75,9 +78,22 @@ class BudgetController extends Controller
         $request->validate([
             'sorties' => 'required',
         ]);
+        budget::all();
+
+        depense::create([
+            'libele' => $request->libele,
+            'sorties' => $request->sorties,
+            'user_id' => Auth::user()->id,
+            'evenement_id'=> $request->evenement_id
+        ]);
 
         $budget = budget::find($id);
+        $budget ->entres =$request->input('entres');
+        $budget ->sorties =$request->input('sorties');
+        $budg = ($request->input('entres')-$request->input('sorties'));
+        $budget ->reste =$budg;
         $budget->update($request->all());
+
         return 'op';
 
     }

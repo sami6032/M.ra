@@ -44,7 +44,7 @@
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
           <a class="" href="index.html">
           <div >
-            <img width="90px" src="frontend/images/LOGO.png" alt="Logo Image">
+            <img width="50px" src="frontend/images/LOGO.png" alt="Logo Image">
         </div>
           </a>
           <a class="navbar-brand brand-logo-mini" href="index.html"><img src="styleDash/images/logo-mini.svg" alt="logo" /></a>
@@ -88,8 +88,8 @@
                 <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
               </a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="{{ route('chatify') }}" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="mdi mdi-email-outline"></i>
                 <span class="count-symbol bg-warning"></span>
               </a>
@@ -128,8 +128,16 @@
                 <div class="dropdown-divider"></div>
                 <h6 class="p-3 mb-0 text-center">4 new messages</h6>
               </div>
+            </li> -->
+            <li class="nav-item ">
+              <a class="nav-link count-indicator"  href="{{ route('chatify') }}"  aria-expanded="false">
+                <i class="mdi mdi-email-outline"></i>
+                
+              </a>
+              
             </li>
-            <li class="nav-item dropdown">
+            
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                 <i class="mdi mdi-bell-outline"></i>
                 <span class="count-symbol bg-danger"></span>
@@ -175,17 +183,13 @@
                 <div class="dropdown-divider"></div>
                 <h6 class="p-3 mb-0 text-center">See all notifications</h6>
               </div>
-            </li>
+            </li> -->
             <li class="nav-item nav-logout d-none d-lg-block">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('logout')}}">
                 <i class="mdi mdi-power"></i>
               </a>
             </li>
-            <li class="nav-item nav-settings d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class="mdi mdi-format-line-spacing"></i>
-              </a>
-            </li>
+            
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
@@ -446,11 +450,14 @@
                         <td>{{ $user->role->type}}</td>
                         <td>
                             @if ($user->photo)
-                                <td><img src="{{ asset('storage/picture/' . $user->photo) }}" alt="Photo" class="img-thumbnail" width="50"></td>
+                                <td><img src="{{ asset('storage/picture/' . $user->photo) }}" alt="Photo" class="img-thumbnail" ></td>
                             @else
                                 N/A
                             @endif
                         </td>
+                        
+
+
                         <td>
                            
                             <form action="{{ route('crud.destroy', $user) }}" method="POST" style="display: inline;">

@@ -51,7 +51,7 @@
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">maigasamira6@gmail.com</a></i>
         <i class="bi bi-phone color-danger d-flex align-items-center ms-4"><span>+226 76 69 63 13</span></i>
-        <i class="bi bi-envelope d-flex align-items-center ms-4"><span>chats privés</span></i>
+        <i class="bi bi-envelope d-flex align-items-center ms-4"><span><a href="{{ route('chatify') }}">chats privés</a></span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -67,7 +67,7 @@
     <div class="container d-flex justify-content-between">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.html"><img  height="350px" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
+        <h1 class="text-light"><a href="index"><img src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -129,7 +129,7 @@
           <li>
                         @guest
                             @if (Route::has('login'))
-                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #A8B8C7; color:white ; border-color:transparent; " >Connexion</button></span> </a>
+                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #1D1613; color:white ; border-color:transparent; " >Connexion</button></span> </a>
                         
                         <!-- <div class="col-lg-3 cta-btn-container text-center">
                             <a class="cta-btn align-middle" href="{{ route('login') }}">Connexion</a>
@@ -175,7 +175,7 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(frontend/images/p22.jpg);">
+        <div class="carousel-item active" style="background-image: url(frontend/images/p15.png);">
           <div class="carousel-container">
             
           </div>
@@ -189,7 +189,7 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url(frontend/images/IMG_0783.jpg);">
+        <div class="carousel-item" style="background-image: url(frontend/images/p22.jpg);">
           <div class="carousel-container">
             
           </div>
@@ -319,14 +319,14 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><<img width="50" height="50" src="https://img.icons8.com/ios-filled/50/000000/meeting.png" alt="meeting"/></i></div>
+              <div class="icon"><img width="50" height="50" src="https://img.icons8.com/ios/50/000000/meeting.png" alt="meeting"/></i></div>
               <h4 class="title"><a href="">Rencontre d'affaire</a></h4>
               <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon"><img width="50" height="50" src="https://img.icons8.com/ios-filled/50/000000/sun-lounger.png" alt="sun-lounger"/></i></div>
+              <div class="icon"><img width="48" height="48" src="https://img.icons8.com/color/48/sun-lounger.png" alt="sun-lounger"/></i></div>
               <h4 class="title"><a href="">Sorties detentes</a></h4>
               <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
             </div>

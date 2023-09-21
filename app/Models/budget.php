@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class budget extends Model
 {
-    protected $fillable = ['entres','user_id','evenement_id'];
+    protected $fillable = [
+    'entres',
+    'sorties',
+    'reste',
+    'user_id',
+    'evenement_id'
+];
     use HasFactory;
     public function evenement(){
         return $this->belongsTo(evenement::class);
