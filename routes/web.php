@@ -7,9 +7,11 @@ use App\Http\Controllers\userCrudController;
 use App\Http\Controllers\eventCrudController;
 use App\Http\Controllers\afficherEventController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AttenteController;
 use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\TestimonialeController;
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\ReponseController;
 use App\Http\Controllers\gestionController;
 use App\Models\Blog;
 
@@ -34,11 +36,25 @@ Route::get('profil', [AuthController::class,'profil'])->name('profil');
 
 Route::get('/dashboardAdmin', [AuthController::class, 'dashboardAdmin'])->name('dashboard');
 Route::get('/dashboardClient', [AuthController::class, 'dashboardClient'])->name('dashboardClient');
+Route::get('service', [AuthController::class,'service'])->name('service');
+
 
 // Login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('loginl');
 
+//middleware
+Route::middleware('auth')->group(function () {
+Route::get('listeTache', [gestionController::class, 'listeTache'])->name('listeTache');
+Route::get('gererTache', [gestionController::class, 'gererTache'])->name('gererTache');
+Route::get('gererBudget', [gestionController::class, 'gererBudget'])->name('gererBudget');
+Route::get('depense', [gestionController::class, 'depense'])->name('depense');
+Route::get('gererParticipant', [gestionController::class, 'gererParticipant'])->name('gererParticipant');
+
+  });
+Route::middleware('admin')->group(function () {
+  Route::resource('blog', BlogController::class);
+  });
 
 // Register
 Route::get('/registerAdmin', [AuthController::class, 'registerAdmin'])->name('registerAdmin');
@@ -86,29 +102,32 @@ Route::get('editEvent/{id}', [eventCrudController::class, 'edit'])->name('edit')
 // Route::post('/updateProduit', [eventCrudController::class, 'updateProduit'])->name('updateProduit');
 Route::put('/storeEvent', [eventCrudController::class, 'storeEvent'])->name('storeEvent');
 Route::get('/delete/{id}', [eventCrudController::class, 'destroy'])->name('destroy.event');
-Route::put('/update', [eventCrudController::class, 'update'])->name('updateEvent');
+Route::put('/update/{id}', [eventCrudController::class, 'update'])->name('updateEvent');
 
 //afficherEvent
 Route::get('/detail/{id}',[afficherEventController::class,'afficher'])->name('present');
 
 //blog
-Route::resource('blog', BlogController::class);
+
 Route::get('/Article_Blog',[BlogController::class,'blog'])->name('article_blog');
+//attente blog
+Route::resource('attente', AttenteController::class);
+Route::get('/blogAttente',[AttenteController::class,'blogAttente'])->name('blogAttente');
+
 
 //Testimoniales
 Route::get('/Testimoniale',[TestimonialeController::class,'Testimoniale'])->name('Testimoniale');
 Route::get('/AjoutTestimoniale',[TestimonialeController::class,'AjoutTestimoniale'])->name('AjoutTestimoniale');
 Route::post('/AjoutTestimoniale', [TestimonialeController::class, 'storeTestimoniale'])->name('testi.store');
-
+//CommentairesTestimoniales
+// Route::get('/commentaire',[TestimonialeController::class,'commentaire'])->name('commentaire');
+// Route::get('/AjoutCommentaire',[TestimonialeController::class,'AjoutCommentaire'])->name('AjoutCommentaire');
+// Route::post('/update/{id}', [TestimonialeController::class, 'update'])->name('Commentaire.store');
+Route::resource('commentaire', ReponseController::class);
 //carte
 Route::get('/carte',[ParticipantController::class,'carte'])->name('carte');
 Route::get('/carte1',[ParticipantController::class,'carte1'])->name('carte1');
 
-//gestion
-Route::get('listeTache', [gestionController::class, 'listeTache'])->name('listeTache');
-Route::get('gererTache', [gestionController::class, 'gererTache'])->name('gererTache');
-Route::get('gererBudget', [gestionController::class, 'gererBudget'])->name('gererBudget');
-Route::get('gererParticipant', [gestionController::class, 'gererParticipant'])->name('gererParticipant');
 
 //test 
 ///test fin

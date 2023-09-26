@@ -160,7 +160,13 @@
     </div>
   </header><br><br>
 
-<br><br>
+  @if ($message = Session::get('success'))
+<div class="alert  text-center alert-block">
+    <button style="border-color: transparent;color:#198754; background-color:transparent ;" type="button" class="close " data-dismiss="alert"><strong>{{ $message }}</strong> 
+	
+</button>    
+</div>
+@endif
   <div class="container">
   <div class="row">
     <div class="col-12 grid-margin">
@@ -174,8 +180,10 @@
               <thead>
                 <tr>
                   
+                  <th>Evènement</th>
                   <th>Nom</th>
                   <th>Prenom</th>
+                  <th>Email</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -184,16 +192,18 @@
 
                 <tr>
          
-                  <!-- <td>{{ $participant->evenement_id}}</td>
-                  <td>{{ $participant->user_id}}</td> -->
+                   <td>{{ $participant->evenement->titre}}</td> 
+                  <!-- <td>{{ $participant->user_id}}</td>  -->
                   <td>{{ $participant->nom }}</td>
                   <td>{{ $participant->prenom }}</td>
-                  <td>{{ $participant->reste }}</td>
+                  <td>{{ $participant->email}}</td>
+                  
+                  
 
                   <td>
-                    <a href="" class="btn btn-success">Carte d'invitation</a>
-                    <a href="" class="btn btn-primary">Telecharger</a>
-                    <a href="" class="btn btn-danger">Accepté</a>
+                    <a href="" class="btn btn-success">Evoyer Email</a>
+                    <!-- <a href="" class="btn btn-primary">Telecharger</a>
+                    <a href="" class="btn btn-danger">Accepté</a> -->
                     <!-- <a href="" style="display: inline;">
 
                       <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet evenement ?')">Supprimer</button>

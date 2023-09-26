@@ -166,12 +166,24 @@
   <main id="main">
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
+
       <div class="container">
+      <th><a href="{{ route('AjoutTestimoniale') }}" class="btn " style="margin: 10px;background-color: #444444;color:white;">Exprimez-vous</a></th>
+      @if ($message = Session::get('success'))
+<div class="alert  text-center alert-block">
+    <button style="border-color: transparent;color:#198754; background-color:transparent ;" type="button" class="close " data-dismiss="alert"><strong>{{ $message }}</strong> 
+	
+</button>    
+</div>
+@endif
       @foreach($testimoniales as $testimoniale)
+      
         <div class="row">
+        <th><a href="" class="btn " style="background-color: #444444;"></a></th>
+
           <div class="col-lg-6-center " data-aos="fade-up">
           
-            <div class="testimonial-item">
+            <div class="testimonial-item" >
             
               <img src="{{ asset('storage/picture/' . $testimoniale->user->photo) }}" class="testimonial-img" alt="">
               <h3>{{ $testimoniale->user->nom }} {{ $testimoniale->user->prenom }}</h3>
@@ -180,8 +192,11 @@
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                 {{ $testimoniale->message }}
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                <div class="read-more">
-                  <button style="width: 130px; height:35px; background: #f8f6f5;border-color:#f8f6f5;"><a href="">Commentaires +</a></button>
+                
+                <div class="read-more"><br><br>
+                  <button style="width: 100px; height:35px; background-color: #444444;border-color:#f8f6f5;"><a href="">Voir +</a></button>
+                  <button style="width: 200px; height:35px; background: #444444;color:white;border-color:#f8f6f5;"><a href=" {{ route('commentaire.edit',$testimoniale->id) }}">Laisser un commentaire</a></button>
+
                 </div>
               </p>
             </div>

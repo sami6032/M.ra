@@ -21,7 +21,7 @@
                 <h2>Les details de l'evenement </h2>
            </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="/accueil"> Retour</a>
+                <a class="btn btn-primary" href="/"> Retour</a>
             </div>
         </div>
     </div>

@@ -70,6 +70,16 @@
         <form action="{{ route('budget.update',$budget->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+		<div class="agile-field-txt">
+				<label> </label>
+				<input type="hidden" class="form-control @error('nom') is-invalid @enderror" value="{{ $budget->evenement_id }}" id="evenement_id"  name="evenement_id" placeholder="Veuillez entrer votre cout" required="" />
+				@error('sorties')
+      			<div class="invalid-feedback">
+      			{{ $message }}
+      			</div>
+      			@enderror
+			</div>
+			
             <div class="agile-field-txt">
 				<label> libele </label>
 				<input type="text" class="form-control @error('libele') is-invalid @enderror" value="{{ old('libele') }}" id="libele"  name="libele" placeholder="Veuillez entrer le libele" required="" />
@@ -80,15 +90,7 @@
       			@enderror
 			</div>
 
-            <div class="agile-field-txt">
-				<label> </label>
-				<input type="hidden" class="form-control @error('nom') is-invalid @enderror" value="{{ $budget->evenement_id }}" id="evenement_id"  name="evenement_id" placeholder="Veuillez entrer votre cout" required="" />
-				@error('sorties')
-      			<div class="invalid-feedback">
-      			{{ $message }}
-      			</div>
-      			@enderror
-			</div>
+            
             <div class="agile-field-txt">
 				<label> Cout </label>
 				<input type="number" class="form-control @error('nom') is-invalid @enderror" value="{{ $budget->sorties }}" id="sorties"  name="sorties" placeholder="Veuillez entrer votre cout" required="" />
@@ -107,8 +109,6 @@
       			</div>
       			@enderror
 			</div>
-            
-            
             <input type="submit" value="valider">
            
 

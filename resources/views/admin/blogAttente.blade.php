@@ -1,14 +1,14 @@
-@extends('blog.layout')
+@extends('attente.layout')
      
 @section('content')
 <!-- <marquee behavior="" direction="">mira</marquee> -->
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Article de blog évènementiel</h2>
+                <h2>Demande de publication</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('blog.create') }}"> publier un nouvel article de blog</a>
+                <a class="btn btn-success" href="{{ route('attente.create') }}"> publier un nouvel article de blog</a>
             </div>
         </div>
     </div>
@@ -27,29 +27,29 @@
             <th>Commentaires</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($blogs as $blog)
+        @foreach ($blogAttentes as $blogAttente)
         <tr>
             <td>{{ ++$i }}</td>
-            <td><img src="/image/{{ $blog->image }}" width="100px"></td>
-            <td>{{ $blog->titre }}</td>
-            <td>{{ $blog->commentaire }}</td>
+            <td><img src="/image/{{ $blogAttente->image }}" width="100px"></td>
+            <td>{{ $blogAttente->titre }}</td>
+            <td>{{ $blogAttente->commentaire }}</td>
             <td>
-                <form action="{{ route('blog.destroy',$blog->id) }}" method="POST">
+                <form action="{{ route('attente.destroy',$blogAttente->id) }}" method="POST">
      
-                    <a class="btn btn-info" href="{{ route('blog.show',$blog->id) }}">Afficher</a>
+                    <a class="btn btn-info" href="{{ route('attente.show',$blogAttente->id) }}">Show</a>
       
-                    <a class="btn btn-primary" href="{{ route('blog.edit',$blog->id) }}">Modifier</a>
+                    <a class="btn btn-primary" href="{{ route('attente.edit',$blogAttente->id) }}">Edit</a>
      
                     @csrf
                     @method('DELETE')
         
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet evenement ?')">Supprimer</button>
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
     
-    {!! $blogs->links() !!}
+    {!! $blogAttentes->links() !!}
         
 @endsection

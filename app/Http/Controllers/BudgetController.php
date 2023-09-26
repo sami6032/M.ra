@@ -78,21 +78,48 @@ class BudgetController extends Controller
         $request->validate([
             'sorties' => 'required',
         ]);
-        budget::all();
+        
 
         depense::create([
             'libele' => $request->libele,
             'sorties' => $request->sorties,
             'user_id' => Auth::user()->id,
+            'budget_id'=> $id,
             'evenement_id'=> $request->evenement_id
         ]);
 
         $budget = budget::find($id);
-        $budget ->entres =$request->input('entres');
-        $budget ->sorties =$request->input('sorties');
-        $budg = ($request->input('entres')-$request->input('sorties'));
-        $budget ->reste =$budg;
-        $budget->update($request->all());
+
+        // Récupérer le montant de la nouvelle sortie
+        $nouvelleSortie = $request->input('sorties');
+        
+        // Récupérer le "reste" actuel du budget
+        $resteActuel = $budget->reste;
+        
+        // Calculer le montant total des sorties actuelles
+        $sortiesTotales = $budget->sorties + $nouvelleSortie;
+        
+        // Assurez-vous que le "sortiesTotales" ne dépasse pas le budget actuel
+        if ($sortiesTotales > $budget->entres) {
+            // Si le total des sorties dépasse le budget actuel, ajustez la sortie à la différence
+            $nouvelleSortie -= ($sortiesTotales - $budget->entres);
+            $sortiesTotales = $budget->entres;
+        }
+        
+        // Mettre à jour le "reste" avec le montant restant
+        $nouveauReste = $budget->entres - $sortiesTotales;
+        
+        // Assurez-vous que le "nouveauReste" ne devienne pas négatif
+        if ($nouveauReste < 0) {
+            $nouveauReste = 0;
+        }
+        
+        // Mettre à jour le budget avec la nouvelle sortie, le total des sorties et le nouveau "reste"
+        $budget->sorties = $sortiesTotales;
+        $budget->reste = $nouveauReste;
+        $budget->save();
+        
+
 
         return 'op';
 

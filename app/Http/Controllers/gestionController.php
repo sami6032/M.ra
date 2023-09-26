@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\assign_tache;
 use App\Models\budget;
+use App\Models\depense;
 use App\Models\evenement;
 use App\Models\Participant;
 use App\Models\tache;
@@ -19,9 +20,15 @@ class gestionController extends Controller
     }
     public function gererTache()
     {
+        $budgets = budget::where('user_id',Auth::user()->id)->get();
         $assign_taches = assign_tache::where('user_id',Auth::user()->id)->get();
         $evenements = evenement::where('user_id',Auth::user()->id)->get();
-        return view('gestion.taches',compact('evenements','assign_taches',));
+        return view('gestion.taches',compact('evenements','assign_taches','budgets'));
+    }
+    public function depense()
+    {
+        $depenses = depense::where('user_id',Auth::user()->id)->get();
+        return view('gestion.depense',compact('depenses'));
     }
     public function gererBudget()
     {

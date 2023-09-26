@@ -20,6 +20,10 @@ class AuthController extends Controller
         $users = User::all();
         return view('index',compact('users'));
     }
+    public function service()
+    {
+        return view('service');
+    }
     public function accueil()
     {
         return view('client.accueil');

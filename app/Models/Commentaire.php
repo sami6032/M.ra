@@ -5,19 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class depense extends Model
+class Commentaire extends Model
 {
-
     use HasFactory;
     protected $fillable = [
-        'libele',
-        'sorties',
+        'commentaire',
         'user_id',
-        'budget_id',
-        'evenement_id'
+        'testimoniale_id',
     ];
-    public function budget(){
-        return $this->belongsTo(budget::class);
+    public function testimoniale(){
+        return $this->belongsTo(Testimoniale::class);
         }
-
 }

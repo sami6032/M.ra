@@ -158,7 +158,7 @@
 
     </div>
   </header>
-  <br><br>
+  <br>
     @if ($message = Session::get('success'))
 <div class="alert  text-center alert-block">
     <button style="border-color: transparent;color:#198754; background-color:transparent ;" type="button" class="close " data-dismiss="alert"><strong>{{ $message }}</strong> 
@@ -166,12 +166,16 @@
 </button>    
 </div>
 @endif
+
+
     <div class="container">
     <div class="row">
       <div class="col-12 grid-margin">
+      <a href="{{ route('listeEvent')}}" style="margin: 10px;" class="btn btn-success"> Mes evenements</a> 
+
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Nommer des responsables à vos taches</h4>
+            <h4 class="card-title">Nommer un responsable à vos taches pour chaque évènement</h4>
             <div class="table-responsive">
               <table class="table">
                 <thead>
@@ -179,8 +183,10 @@
 
                     <th>titre</th>
                     <th>date</th>
-
                     <th>Actions</th>
+                    <th>
+                      
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -191,8 +197,8 @@
                     <td>{{ $evenement->date }}</td>
                     <td>
                       <a href="{{ route('assignTache', $evenement->id) }}" class="btn btn-success">Assigner des taches</a>
-
-
+                    
+                     
                     </td>
                   </tr>
                   @endforeach

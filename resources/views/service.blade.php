@@ -51,7 +51,7 @@
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">maigasamira6@gmail.com</a></i>
         <i class="bi bi-phone color-danger d-flex align-items-center ms-4"><span>+226 76 69 63 13</span></i>
-        <i class="bi bi-envelope d-flex align-items-center ms-4"><span>chats privés</span></i>
+        <i class="bi bi-envelope d-flex align-items-center ms-4"><span><a href="{{ route('chatify') }}">chats privés</a></span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -67,15 +67,15 @@
     <div class="container d-flex justify-content-between">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.html"><img  height="350px" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
+        <h1 class="text-light"><a href="index"><img src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
       <ul>
-          <li><a class="active" href="{{ route('index') }}">Accueil</a></li>
-          <li><a href="">SERVICES</a></li>
+          <li><a  href="{{ route('index') }}">Accueil</a></li>
+          <li><a class="active" href="{{ route('listeEvent') }}">SERVICES</a></li>
           
           <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
@@ -90,7 +90,7 @@
           <!-- <li><a href="pricing.html">Pricing</a></li>-->
           <li><a href="{{ route('Testimoniale') }}">Testimoniales</a></li> 
           <li><a href="{{ route('article_blog') }}">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>evnements</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>évènements</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               
               <li class="dropdown"><a href="#"><span>Nouvel évènement</span> <i class="bi bi-chevron-right"></i></a>
@@ -129,7 +129,7 @@
           <li>
                         @guest
                             @if (Route::has('login'))
-                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #A8B8C7; color:white ; border-color:transparent; " >Connexion</button></span> </a>
+                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #1D1613; color:white ; border-color:transparent; " >Connexion</button></span> </a>
                         
                         <!-- <div class="col-lg-3 cta-btn-container text-center">
                             <a class="cta-btn align-middle" href="{{ route('login') }}">Connexion</a>
@@ -140,12 +140,18 @@
                        
                         @else
                         <!-- <a href="" class="login"><i></i>{{ Auth::user()->name }} </a> -->
-                     <li>   <a href=""> 
+                     <li>   <a href="{{ route('profil') }}"> 
                       <span>
                       <i class="fa fa-user"></i>
                      @auth
+                     <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
+                     <!-- <div class="nav-profile-image">
+                     <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
+                  <span class="login-status online"></span>
+                  change to offline or busy as needed
+                </div>
                     {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
-                    @endauth
+                    @endauth -->
                    </a></li>
                        <li> <a href="{{ route('logout') }}"> <span><button style="width: 100px; height:35px; background: rgb(230 45 54);color:white ;border-color:transparent;  " >Deconnexion</button></span> </a></li>
                           @csrf
@@ -158,68 +164,149 @@
       </nav><!-- .navbar -->
 
     </div>
-  </header><br>
-  <div class="container">
-  <div class="row">
-    <div class="col-12 grid-margin">
-    <a href="{{ route('gererTache')}}" style="margin: 10px;" class="btn btn-success">Gerer mes taches</a> 
-
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Liste des evenements</h4>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  
-                  <th>titre</th>
-                  <th>date</th>
-                  <th>lieu</th>
-                  <th>description</th>
-                  <th>nombre_invite</th>
-                  <th>budget</th>
-                  <th></th>
-                  <th></th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($budgets as $budget)
-
-                <tr>
-
-                  
-                  <td>{{ $budget->evenement->titre }}</td>
-                  <td>{{ $budget->evenement->date }}</td>
-                  <td>{{ $budget->evenement->lieu }}</td>
-                  <td>{{ $budget->evenement->description }}</td>
-                  <td>{{ $budget->evenement->nombre_invite}}</td>
-                  <td>{{ $budget->entres }}</td>
-                  <td>{{ $budget->sorties }}</td>
-                  <td>{{ $budget->reste }}</td>
-
-                  <td>
-                    <a href="{{ url('detail/'.$budget->id)}}" class="btn btn-success">Afficher</a>
-                    <a href="{{ route('edit', $budget->id) }}" class="btn btn-primary">Modifier</a>
-                    <a href="{{ route('destroy.event', $budget->id) }}" style="display: inline;">
-
-                      <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet evenement ?')">Supprimer</button>
-                    </a>
-
-                  </td>
 
 
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+
+
+
+  </header>
+  <section id="about-us" class="about-us">
+      <div class="container">
+
+        <div class="row no-gutters">
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="border-radius: 20px ; "></div>
+          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+            <div class="content d-flex flex-column justify-content-center">
+              <h3 data-aos="fade-up">NOS SERVICES</h3>
+              <p data-aos="fade-up">
+                Nous vous proposons une application qui vous aidera dans la gestion d'évènementiel.L'avantage de M.ra Event s'est qu'il y'a une equipe d'experts prèts à vous accompagner ou à le gerer pour vous
+              </p>
+              <div class="row">
+                <div class="col-md-6 icon-box" data-aos="fade-up">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Mariage</h4>
+                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4>Anniversaire</h4>
+                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bx bx-images"></i>
+                  <h4>Surprise Event</h4>
+                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-shield"></i>
+                  <h4>Rencontre d'affaire</h4>
+                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-shield"></i>
+                  <h4>Sorties detentes</h4>
+                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-shield"></i>
+                  <h4>Decès</h4>
+                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                </div>
+              </div>
+            </div><!-- End .content-->
           </div>
         </div>
+
       </div>
-    </div>
-  </div>
-  </div>
-<br>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Our Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Notre <strong>Equipe</strong></h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up">
+              <div class="member-img">
+                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Nicolas YODA</h4>
+                <span>Community Manager</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Samira MAIGA</h4>
+                <span>PDG</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+              <div class="member-img">
+                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Ivan BELEMTOUGRI</h4>
+                <span>Expert deco event</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="member-img">
+                <img src="assetes/img/team/team-4.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+              <h4>Adissa La Fleur</h4>
+                <span>Consultante mode event</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

@@ -33,7 +33,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assetes/css/style.css" rel="stylesheet">
-
+  <link href="responsive.css"  rel="stylesheet">
   <!-- =======================================================
   * Template Name: Flattern
   * Updated: Jul 27 2023 with Bootstrap v5.3.1
@@ -67,7 +67,7 @@
     <div class="container d-flex justify-content-between">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index"><img src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
+        <h1 class="text-light"><a href="index"><img style="width: 55px;" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -75,7 +75,7 @@
       <nav id="navbar" class="navbar">
       <ul>
           <li><a class="active" href="{{ route('index') }}">Accueil</a></li>
-          <li><a href="">SERVICES</a></li>
+          <li><a  href="{{ route('service') }}">SERVICES</a></li>
           
           <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
@@ -90,7 +90,7 @@
           <!-- <li><a href="pricing.html">Pricing</a></li>-->
           <li><a href="{{ route('Testimoniale') }}">Testimoniales</a></li> 
           <li><a href="{{ route('article_blog') }}">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>evnements</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>avenements</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               
               <li class="dropdown"><a href="#"><span>Nouvel évènement</span> <i class="bi bi-chevron-right"></i></a>
@@ -144,7 +144,9 @@
                       <span>
                       <i class="fa fa-user"></i>
                      @auth
-                     <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
+
+                        <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px; height:50px;border-radius: 100%;"; >
+
                      <!-- <div class="nav-profile-image">
                      <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
                   <span class="login-status online"></span>
@@ -158,6 +160,7 @@
                          </form>
                          @endguest
              </li>
+             
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         
@@ -209,139 +212,87 @@
 
     </div>
   </section><!-- End Hero -->
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
+  
+  <div style="background-color:#f3f1f0;  height: 550px;">
+  <div class="s1" >
+    <div style="font-size: 29px; background-color: #0662C8;color: white; padding: 7px 90px 7px 90px; border-radius: 20px ; margin-top: 30px; " >BIENVENUE à M.ra Event</div>
+    <div class="para1">
+        <div class="petitpara"><p>  C'est un plaisir pour nous de vous compter parmis nous et sachez que vous etes au bon endroit car pour vous
+      faire plaisir nous réalisons ce que vos pensez etre irréalisable.Par vous ou par nos experts tout est mis à votre disposition pour la reussite de vos évènements
+                Nous vous proposons une application qui vous aidera dans la gestion d'évènementiel.L'avantage de M.ra Event s'est qu'il y'a une equipe d'experts prèts à vous accompagner ou à le gerer pour vous </p>  </div>
+                <div class="ima1" ><img  style="width: 100%; height: 360PX; border-radius: 20px; " src="../images/web1.png" alt=""></div>
 
-  <main id="main">
+  
+</div>
 
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
+</div>
+
+</div>
+
+</div>
+
+
+
+<section id="about-us" class="about-us" style="gap:20px;  margin-top: -20px;">
+<div class="s1" >
+      <div style="font-size: 29px; background-color:#0662C8; color: white; padding: 7px 90px 7px 90px; border-radius: 20px ; margin: 20px; " >NOS SERVICES</div>
+        </div>
       <div class="container">
+      
+        <div class="row no-gutters">
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" style="border-radius: 20px;" ></div>
 
-        <div class="row">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3><strong>Bienvenus à M.ra Event </strong> </h3>
-            <p> C'est un plaisir pour nous de vous compter parmis nous et sachez que vous etes au bon endroit car pour vous
-      faire plaisir nous réalisons ce que vos pensez etre irréalisable.Par vous ou par nos experts tout est mis à votre disposition pour la reussite de vos évènements</p> <br>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Request a quote</a>
+          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+            <div class="content d-flex flex-column justify-content-center">
+
+              
+              <p data-aos="fade-up">
+                Nous vous proposons une application qui vous aidera dans la gestion d'évènementiel.L'avantage de M.ra Event s'est qu'il y'a une equipe d'experts prèts à vous accompagner ou à le gerer pour vous
+              </p>
+              <div class="row">
+                <div class="col-md-6 icon-box" data-aos="fade-up">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Mariage</h4>
+                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4>Anniversaire</h4>
+                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bx bx-images"></i>
+                  <h4>Surprise Event</h4>
+                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-shield"></i>
+                  <h4>Rencontre d'affaire</h4>
+                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-shield"></i>
+                  <h4>Sorties detentes</h4>
+                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-shield"></i>
+                  <h4>Decès</h4>
+                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                </div>
+              </div>
+            </div><!-- End .content-->
           </div>
         </div>
 
       </div>
-      <div class="container-fluid intmar">
-    <div class="container mariage">
-      <div><img class="imgprim" src="../images/c150951eb159a63cfb8465dc4d149463.jpg" alt=""></div>
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner text-center">
-          <div class="carousel-item active">
-            <img class="ima" src="../images/c150951eb159a63cfb8465dc4d149463.jpg" class="d-block w-50" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img class="ima" src="../images/1200x768_conge_de_mariage_quels_sont_vos_droits_1.webp"
-              class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img class="ima"
-              src="../images/depositphotos_101754808-stock-photo-african-wedding-couple-lovingly-hugging.jpg"
-              class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img class="ima" src="../images/B26LV52NFFD3DBOMITIJVUFNAM.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img class="ima" src="../images/robe-de-mariee-africaine-en-satin-grande-taille.webp" class="d-block w-100"
-              alt="...">
-          </div>
-          <div class="carousel-item">
-            <img class="ima" src="../images/mariage-africain-1.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    </section><!-- End Cta Section -->
+   
+    
+        
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up">
-              <div class="icon"><img width="48" height="48" src="https://img.icons8.com/color/48/wedding-rings.png" alt="wedding-rings"/></i></div>
-              <h4 class="title"><a href="">Mariage</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon"><img width="48" height="48" src="https://img.icons8.com/emoji/48/birthday-cake-emoji.png" alt="birthday-cake-emoji"/></i></div>
-              <h4 class="title"><a href="">Anniversaire</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><img width="64" height="64" src="https://img.icons8.com/arcade/64/give-gift.png" alt="give-gift"/></i></div>
-              <h4 class="title"><a href="">Surprise Event</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><img width="50" height="50" src="https://img.icons8.com/ios/50/000000/meeting.png" alt="meeting"/></i></div>
-              <h4 class="title"><a href="">Rencontre d'affaire</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon"><img width="48" height="48" src="https://img.icons8.com/color/48/sun-lounger.png" alt="sun-lounger"/></i></div>
-              <h4 class="title"><a href="">Sorties detentes</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div class="icon"><img width="64" height="64" src="https://img.icons8.com/external-justicon-lineal-justicon/64/external-death-funeral-justicon-lineal-justicon.png" alt="external-death-funeral-justicon-lineal-justicon"/></i></div>
-              <h4 class="title"><a href="">Decès</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
+         
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">

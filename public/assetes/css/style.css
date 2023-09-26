@@ -783,6 +783,81 @@ section {
   border-radius: 50px;
 }
 
+
+
+
+
+
+
+
+.s1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  
+}
+.para1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  
+}
+
+.petitpara{
+  font-size: 23px ; width: 50% ; height: auto; border: 3px solid #707070; padding: 10px; text-align: center; border-radius: 20px;
+}
+.s2{
+  background-color: #EBEFF6;
+  justify-content: center;
+  gap: 60px;
+  display: flex;
+  flex-direction: row;
+  min-height: 400px;
+  align-items: center;
+
+}
+.trec{
+  border-radius: 20px;
+  text-align: center;
+  padding: 60px; 
+  background-color: #D7E5E9;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.cardf{
+  margin-top: 20px;
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
+}
+.ima2{
+  border-radius: 100%;
+  width: 80px;
+  margin-bottom: -50px;
+  z-index: 5;
+  
+}
+.socialt{
+  background-color: #0C738E;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 300px;
+  width:auto ;
+  min-height:450px ;
+  align-items: center;
+  gap: 70px;
+ 
+}
+
+
+
+
+
+
+
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
   color: #fff;

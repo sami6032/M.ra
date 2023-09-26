@@ -1,0 +1,29 @@
+
+@media screen and (max-width:710px) {
+    .para1{
+        flex-direction: column;
+    }
+    .petitpara{
+        display: none;
+    }
+    .petitpara{
+        border-style: none;
+        width: 90%;
+    }
+    .s2{
+        flex-direction: column;
+        align-items: center;
+    }
+    .socialt{
+        flex-direction: column;
+        min-height: 900px;
+    }
+    .cardy{
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+    .finish{
+        display: none;
+    }
+}

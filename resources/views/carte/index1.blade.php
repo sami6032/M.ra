@@ -16,7 +16,7 @@
 
 
 
-<div class="d-flex justify-content-center"><img  width="100%" src="{{asset('frontend/images/lllmmmm.png')}}" alt="">
+<!-- <div class="d-flex justify-content-center"><img  width="100%" src="{{asset('frontend/images/lllmmmm.png')}}" alt="">
     <div class="d-flex">
     <h1 style="margin: -550px 0px 0px 150px ">INVITATION</h1>
     <h3 class="u-text u-text-2">Chers Maiga Samira,</h3>
@@ -26,6 +26,15 @@
     </h4>
 
     </div>
+</div> -->
+
+<div class="card  d-flex justify-content-center text-dark">
+  <img src="{{asset('frontend/images/lllmmmm.png')}}" class="card-img" alt="...">
+  <div class="card-img-overlay d-flex justify-content-center" >
+    <h5 class="card-title ">Card title</h5>
+    <p class="card-text " >This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text ">Last updated 3 mins ago</p>
+  </div>
 </div>
 
 

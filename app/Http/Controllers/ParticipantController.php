@@ -41,7 +41,6 @@ class ParticipantController extends Controller
             'evenement_id'=> $request->evenement_id,
            
         ]);
-        return ('invitation crée avec succes, </br>
-        ajoutez une autre si necessaire');
+        return redirect()->route('gererParticipant')->with('success','invitation crée avec succes,envoyez lui une invitation par Email');
     }
 }

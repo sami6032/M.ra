@@ -158,56 +158,35 @@
       </nav><!-- .navbar -->
 
     </div>
-  </header><br>
+  </header><br><br>
+
   <div class="container">
   <div class="row">
     <div class="col-12 grid-margin">
-    <a href="{{ route('gererTache')}}" style="margin: 10px;" class="btn btn-success">Gerer mes taches</a> 
-
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Liste des evenements</h4>
+          <h4 class="card-title">Apperçu des depenses effectuées</h4>
           <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
-                  
-                  <th>titre</th>
-                  <th>date</th>
-                  <th>lieu</th>
-                  <th>description</th>
-                  <th>nombre_invite</th>
-                  <th>budget</th>
+                  <th>No</th>
+                  <th> Titre de l'evènement</th>
+                  <th>Motif</th>
+                  <th>Montant</th>
+                  <th>Reste du budget total</th>
                   <th></th>
-                  <th></th>
-                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($budgets as $budget)
+                @foreach ($depenses as $depense)
 
                 <tr>
-
-                  
-                  <td>{{ $budget->evenement->titre }}</td>
-                  <td>{{ $budget->evenement->date }}</td>
-                  <td>{{ $budget->evenement->lieu }}</td>
-                  <td>{{ $budget->evenement->description }}</td>
-                  <td>{{ $budget->evenement->nombre_invite}}</td>
-                  <td>{{ $budget->entres }}</td>
-                  <td>{{ $budget->sorties }}</td>
-                  <td>{{ $budget->reste }}</td>
-
-                  <td>
-                    <a href="{{ url('detail/'.$budget->id)}}" class="btn btn-success">Afficher</a>
-                    <a href="{{ route('edit', $budget->id) }}" class="btn btn-primary">Modifier</a>
-                    <a href="{{ route('destroy.event', $budget->id) }}" style="display: inline;">
-
-                      <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet evenement ?')">Supprimer</button>
-                    </a>
-
-                  </td>
-
+                  <td>{{ $depense->id }}</td>
+                  <td>{{ $depense->budget->evenement->titre }}</td>
+                  <td>{{ $depense->libele }}</td>
+                  <td>{{ $depense->sorties }}</td>
+                  <td>{{ $depense->budget->reste }}</td>
 
                 </tr>
                 @endforeach
@@ -219,8 +198,19 @@
     </div>
   </div>
   </div>
-<br>
 
+
+
+
+  </table>
+   <br>
+
+
+ 
+  </div>
+  </div>
+
+  </div>
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
