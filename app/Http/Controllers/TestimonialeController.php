@@ -11,7 +11,7 @@ class TestimonialeController extends Controller
 {
     public function Testimoniale()
     {
-        $testimoniales = testimoniale::all();
+        $testimoniales = testimoniale::latest()->get();
         return view('client/testimoniale',compact ('testimoniales') );
     }
 
@@ -38,6 +38,27 @@ class TestimonialeController extends Controller
         $testimoniales = testimoniale::all();
         return view('client/testimoniale',compact ('testimoniales') );
     }
+    public function comment($id)
+    {
+        $testimoniale = Testimoniale::find($id);
+        return view('reponse.comment', compact('testimoniale'));
+    }
+    public function comme(Request $request, $id)
+    {
+        $request->validate([
+            'commentaire' => 'required',
+        ]);
+       
+        Commentaire::create([
+            'commentaire'=> $request->commentaire,
+            'user_id' => Auth::user()->id,
+            'testimoniale_id'=> $id,
+            
+        ]);
+        return ('Merci pour le soutient');
+        dd($request);
+        return 'op';
+    }
 
     public function AjoutCommentaire()
     {
@@ -47,7 +68,7 @@ class TestimonialeController extends Controller
     public function update(Request $request,$id)
     {
         $request->validate([
-            'commentaire' => 'required',
+            'message' => 'required',
         ]);
         
         Commentaire::create([

@@ -35,18 +35,8 @@
 
 <div class="w3ls-login box box--big" style="margin-top: -50px;">
 		<!-- form starts here -->
-		<form action="{{ route('commentaire.update', $commentaire->id) }}" method="Post">
+		<form action="{{ url('comme', $testimoniale->id) }}" method="Post">
         @csrf
-			<div class="agile-field-txt">
-				<label><i class="fa fa-enveloppe" aria-hidden="true"></i> Message </label>
-                <textarea name="message" id="message" class="form-control @error('message') is-invalid @enderror" cols="30" placeholder="Veuillez saisir votre message" value="{{ $testimoniale->message }}" rows="10">
-                </textarea>
-				@error('message')
-      			<div class="invalid-feedback">
-      			{{ $message }}
-      			</div>
-      			@enderror
-			</div>
 			<div class="agile-field-txt">
 				<label><i class="fa fa-enveloppe" aria-hidden="true"></i> </label>
                 <textarea name="commentaire" id="commentaire" class="form-control @error('commentaire') is-invalid @enderror" cols="30" placeholder="Veuillez saisir votre commentaire" value="{{ old('commentaire') }}" rows="10">

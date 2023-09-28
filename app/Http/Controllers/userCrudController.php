@@ -5,9 +5,37 @@ use App\Models\crud;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
+use App\Models\Participant;
+use Illuminate\Support\Facades\Auth;
 
 class userCrudController extends Controller
 {
+
+//     public function bar()
+//     {
+//         $user = ['email'=>'user@test.com','name'=>'monsieur test'];
+
+// //$user->email
+//         Mail::to($user['email'])->send(new TestMail($user));
+
+//         return ('test.bar') ;
+//     }
+public function bar()
+{
+    // Récupérez tous les participants de votre base de données
+    $participants = Participant::all();
+    // $participants = Participant::where('user_id',Auth::user()->id)->get();
+    // Parcourez chaque participant et envoyez-lui un e-mail
+    foreach ($participants as $participant) {
+        // Utilisez l'adresse e-mail de chaque participant
+        Mail::to($participant->email)->send(new TestMail($participant));
+    }
+
+    return 'Email envoyer avec succès';
+}
+
     public function index()
 {
     $users = User::all(); // Récupère tous les enregistrements de la table "cruds"
@@ -151,6 +179,7 @@ public function edit(User $crud)
 
         return redirect()->route('index')->with('success', 'Utilisateur supprimé avec succès');
     }
+
 
     
 }

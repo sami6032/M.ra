@@ -26,12 +26,12 @@ class AttenteController extends Controller
     //     return view('admin.blogAttente',compact('blogAttentes'))
     //         ->with('i', (request()->input('page', 1) - 1) * 5);
     // }
-    public function blogAttente()
-    {
-        $blogAttentes = BlogAttente::all();
-        return view('admin.blogAttente',compact('blogAttentes'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-    }
+    // public function blogAttente()
+    // {
+    //     $blogAttentes = BlogAttente::all();
+    //     return view('admin.blogAttente',compact('blogAttentes'))
+    //         ->with('i', (request()->input('page', 1) - 1) * 5);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -43,6 +43,7 @@ class AttenteController extends Controller
         $blogAttentes = BlogAttente::all();
 
         return view('attente.create',compact('blogAttentes'));
+        
     }
 
     /**
@@ -70,8 +71,9 @@ class AttenteController extends Controller
     
         blogAttente::create($input);
      
-        return redirect()->route('attente.index')
-                        ->with('success','Article créer avec succès');
+                    
+        // return redirect()->route('attente.index')->with('success','Demande crée avec succes,vous recevrez une notification mail quand votre article sera publié.Merci pour la confiance');
+        return ('Demande crée avec succes,vous recevrez une notification mail quand votre article sera publié.Merci pour la confiance');
     }
 
     /**

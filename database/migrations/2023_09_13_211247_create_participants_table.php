@@ -17,10 +17,11 @@ class CreateParticipantsTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
+            $table->string('email')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('evenement_id')->constrained();
-            $table->boolean('envoyer')->default(0);
-            $table->boolean('confirmed')->default(0);
+            $table->boolean('statut')->default(0);
+            
             $table->timestamps();
         });
     }

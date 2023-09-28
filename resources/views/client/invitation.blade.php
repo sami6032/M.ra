@@ -57,6 +57,15 @@
       			</div>
       			@enderror
 			</div>
+			<div class="agile-field-txt">
+				<label><i class="fa fa-enveloppe" aria-hidden="true"></i> Email </label>
+				<input type="text" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email"  name="email" placeholder="Veuillez entrer son mail pour potentiellement l'inviter" required="" />
+				@error('email')
+      			<div class="invalid-feedback">
+      			{{ $message }}
+      			</div>
+      			@enderror
+			</div>
             
 			<div class="form-floating" style="width: 100%;">
 		<label for="" > Choisir l'evenement correspondante </label>

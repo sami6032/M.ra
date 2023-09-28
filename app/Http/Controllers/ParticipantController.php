@@ -37,6 +37,7 @@ class ParticipantController extends Controller
             
             'nom'=> $request->nom,
             'prenom'=> $request->prenom,
+            'email'=> $request->email,
             'user_id' => Auth::user()->id,
             'evenement_id'=> $request->evenement_id,
            

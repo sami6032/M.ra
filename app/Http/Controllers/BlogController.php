@@ -21,8 +21,8 @@ class BlogController extends Controller
     }
     public function blog()
     {
-        $blog = Blog::all();
-        return view('client.blog',compact('blog'))
+        $blogs = Blog::latest()->paginate(3);
+        return view('client.blog',compact('blogs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

@@ -1,11 +1,9 @@
 
-
- 
 <!DOCTYPE HTML>
 <html lang="fr">
 
 <head>
-	<title> M.ra Event</title>
+	<title>M.ra Event</title>
 	<!-- Meta-Tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
@@ -26,11 +24,14 @@
 	<!--fonts-->
 	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 	<!--//fonts-->
+	<link rel="stylesheet" href="stylenav/nav.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="shortcut icon" href="{{ asset('frontend/images/LOGO.png') }}" />
+	
 </head>
-
 <body>
 	<br>
-@include('component.navSimple')
+@include('component.navSimple') <br><br>
     <h1 style="margin-top: -25px;">Evenement</h1>
 
 <div class="w3ls-login box box--big" style="margin-top: -50px;">

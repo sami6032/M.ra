@@ -11,10 +11,11 @@ class Participant extends Model
     protected $fillable = [
         'nom',
         'prenom',
+        'email',
         'user_id',
         'evenement_id',
-        'envoyer',
-        'confirmed'
+        'statut',
+        
         
     ];
     public function evenement(){

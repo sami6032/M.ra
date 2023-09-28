@@ -13,6 +13,7 @@ use App\Http\Controllers\TestimonialeController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\ReponseController;
 use App\Http\Controllers\gestionController;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Blog;
 
 /*
@@ -112,10 +113,13 @@ Route::get('/detail/{id}',[afficherEventController::class,'afficher'])->name('pr
 Route::get('/Article_Blog',[BlogController::class,'blog'])->name('article_blog');
 //attente blog
 Route::resource('attente', AttenteController::class);
-Route::get('/blogAttente',[AttenteController::class,'blogAttente'])->name('blogAttente');
+// Route::get('/blogAttente',[AttenteController::class,'blogAttente'])->name('blogAttente');
 
 
 //Testimoniales
+Route::get('comment/{id}',[TestimonialeController::class,'comment'])->name('comment');
+Route::post('comme/{id}',[TestimonialeController::class,'comme'])->name('comme');
+
 Route::get('/Testimoniale',[TestimonialeController::class,'Testimoniale'])->name('Testimoniale');
 Route::get('/AjoutTestimoniale',[TestimonialeController::class,'AjoutTestimoniale'])->name('AjoutTestimoniale');
 Route::post('/AjoutTestimoniale', [TestimonialeController::class, 'storeTestimoniale'])->name('testi.store');
@@ -132,3 +136,9 @@ Route::get('/carte1',[ParticipantController::class,'carte1'])->name('carte1');
 //test 
 ///test fin
 Route::resource('budget', BudgetController::class);
+
+///Email
+// Route::get('/bar', 'App\Http\Controllers\userCrudController@bar,');
+Route::get('/bar',[userCrudController::class,'bar'])->name('bar');
+
+

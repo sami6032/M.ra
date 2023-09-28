@@ -33,6 +33,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assetes/css/style.css" rel="stylesheet">
+  <link href="styl.css" rel="stylesheet">
   <link href="responsive.css"  rel="stylesheet">
   <!-- =======================================================
   * Template Name: Flattern
@@ -66,8 +67,8 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex justify-content-between">
 
-      <div class="logo">
-        <h1 class="text-light"><a href="index"><img style="width: 55px;" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
+      <div class="">
+        <h1 class="text-light"><a href="index"><img style="width: 50px;" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -102,9 +103,9 @@
                 </ul>
               </li>
               
-              <li class="dropdown"><a href="#"><span>Impliquer un expert</span> <i class="bi bi-chevron-right"></i></a>
+              <li class="dropdown"><a href=""><span>Impliquer un expert</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Discuter avec l'admin </a></li>
+                  <li><a href="{{ route('chatify') }}">Discuter avec l'admin </a></li>
                  
                   
                 </ul>
@@ -214,30 +215,35 @@
   </section><!-- End Hero -->
 
   
-  
-  <div style="background-color:#f3f1f0;  height: 550px;">
-  <div class="s1" >
-    <div style="font-size: 29px; background-color: #0662C8;color: white; padding: 7px 90px 7px 90px; border-radius: 20px ; margin-top: 30px; " >BIENVENUE à M.ra Event</div>
-    <div class="para1">
-        <div class="petitpara"><p>  C'est un plaisir pour nous de vous compter parmis nous et sachez que vous etes au bon endroit car pour vous
-      faire plaisir nous réalisons ce que vos pensez etre irréalisable.Par vous ou par nos experts tout est mis à votre disposition pour la reussite de vos évènements
-                Nous vous proposons une application qui vous aidera dans la gestion d'évènementiel.L'avantage de M.ra Event s'est qu'il y'a une equipe d'experts prèts à vous accompagner ou à le gerer pour vous </p>  </div>
-                <div class="ima1" ><img  style="width: 100%; height: 360PX; border-radius: 20px; " src="../images/web1.png" alt=""></div>
+  <section class="" id="about">
 
-  
-</div>
+            <div class="container">
+                <div class="row">
+                  
+                    <div class="section__title">
+                    <div style="font-size: 29px; background-color: transparent;color: black; border-radius: 20px ; " >BIENVENUE à M.ra Event</div>
 
-</div>
+                        <!-- <span>BIENVENUE à M.ra Event</span> -->
+                    </div>
+                    <div class="about__detail">
+                        <div class="about__detail__content">
+                            <div class="about__img">
+                                <img src="../images/web1.png" alt="">
+                            </div>
+                            <div  class="about__descripion">
+                                
+                                <p>M.ra Event, votre destination pour des événements exceptionnels. Notre passion est de réaliser vos rêves, en créant des expériences inoubliables. Explorez notre savoir-faire, laissez-nous vous guider vers des moments uniques, et ensemble, faisons de chaque occasion un souvenir précieux. Prêts à vivre des moments extraordinaires ?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-</div>
+</section>
 
-</div>
-
-
-
-<section id="about-us" class="about-us" style="gap:20px;  margin-top: -20px;">
+<section id="about-us" class="about-us" style="gap:20px;  margin-top: -100px;">
 <div class="s1" >
-      <div style="font-size: 29px; background-color:#0662C8; color: white; padding: 7px 90px 7px 90px; border-radius: 20px ; margin: 20px; " >NOS SERVICES</div>
+      <div style="font-size: 29px; background-color:transparent; color: black;  border-radius: 20px ; margin: 20px; " ><strong>NOS SERVICES</strong> </div>
         </div>
       <div class="container">
       
@@ -253,32 +259,32 @@
               </p>
               <div class="row">
                 <div class="col-md-6 icon-box" data-aos="fade-up">
-                  <i class="bx bx-receipt"></i>
-                  <h4>Mariage</h4>
+                <img width="48" height="48" src="https://img.icons8.com/color/48/wedding-rings.png" placeholder="mim" alt="wedding-rings"/>
+                                  <h4>Mariage</h4>
                   <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-cube-alt"></i>
+                <img width="48" height="48" src="https://img.icons8.com/emoji/48/birthday-cake-emoji.png" alt="birthday-cake-emoji"/>
                   <h4>Anniversaire</h4>
                   <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                  <i class="bx bx-images"></i>
+                <img width="66" height="66" src="https://img.icons8.com/external-smashingstocks-outline-color-smashing-stocks/66/external-Surprise-celebrate-smashingstocks-outline-color-smashing-stocks.png" alt="external-Surprise-celebrate-smashingstocks-outline-color-smashing-stocks"/>
                   <h4>Surprise Event</h4>
                   <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bx bx-shield"></i>
+                <img width="48" height="48" src="https://img.icons8.com/color/48/sun-lounger--v1.png" alt="sun-lounger--v1"/> <br><br>
+                  <h4>Sorties detentes</h4>
+                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta ut maiores omnis facere</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                <img width="100" height="100" src="https://img.icons8.com/plasticine/100/meeting.png" alt="meeting"/>
                   <h4>Rencontre d'affaire</h4>
                   <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                </div>
+                </div> 
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bx bx-shield"></i>
-                  <h4>Sorties detentes</h4>
-                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                </div>
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bx bx-shield"></i>
+                <img width="64" height="64" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-death-lifestyles-flaticons-lineal-color-flat-icons-2.png" alt="external-death-lifestyles-flaticons-lineal-color-flat-icons-2"/> <br><br>
                   <h4>Decès</h4>
                   <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
                 </div>
@@ -288,6 +294,7 @@
         </div>
 
       </div>
+      </section>
    
     
         
@@ -480,7 +487,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>M.ra Mark</h3>
+            <h3>M.ra Event</h3>
            
           </div>
 
@@ -495,31 +502,25 @@
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Laisser un commentaire</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container d-md-flex py-4">
-
-      <div class="me-md-auto text-center text-md-start">
+          <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>M.ra Event</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>M.ra Event</span></strong>. Tout droit reservé
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/ -->
-          Designed by <a href=""> M.ra Mark</a>
+          Designed by <a href=""> M.ra Event</a>
         </div>
       </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
     
   </footer><!-- End Footer -->
 

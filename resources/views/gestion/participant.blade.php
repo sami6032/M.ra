@@ -33,7 +33,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assetes/css/style.css" rel="stylesheet">
-
+  <link href="responsive.css"  rel="stylesheet">
   <!-- =======================================================
   * Template Name: Flattern
   * Updated: Jul 27 2023 with Bootstrap v5.3.1
@@ -51,7 +51,7 @@
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">maigasamira6@gmail.com</a></i>
         <i class="bi bi-phone color-danger d-flex align-items-center ms-4"><span>+226 76 69 63 13</span></i>
-        <i class="bi bi-envelope d-flex align-items-center ms-4"><span>chats privés</span></i>
+        <i class="bi bi-envelope d-flex align-items-center ms-4"><span><a href="{{ route('chatify') }}">chats privés</a></span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -66,8 +66,8 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex justify-content-between">
 
-      <div class="logo">
-        <h1 class="text-light"><a href="index.html"><img  height="350px" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
+      <div class="">
+        <h1 class="text-light"><a href="index"><img style="width: 50px;" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -75,7 +75,7 @@
       <nav id="navbar" class="navbar">
       <ul>
           <li><a class="active" href="{{ route('index') }}">Accueil</a></li>
-          <li><a href="">SERVICES</a></li>
+          <li><a  href="{{ route('service') }}">SERVICES</a></li>
           
           <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
@@ -90,7 +90,7 @@
           <!-- <li><a href="pricing.html">Pricing</a></li>-->
           <li><a href="{{ route('Testimoniale') }}">Testimoniales</a></li> 
           <li><a href="{{ route('article_blog') }}">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>evnements</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>avenements</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               
               <li class="dropdown"><a href="#"><span>Nouvel évènement</span> <i class="bi bi-chevron-right"></i></a>
@@ -104,7 +104,7 @@
               
               <li class="dropdown"><a href="#"><span>Impliquer un expert</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Discuter avec l'admin </a></li>
+                  <li><a href="{{ route('chatify') }}">Discuter avec l'admin </a></li>
                  
                   
                 </ul>
@@ -129,7 +129,7 @@
           <li>
                         @guest
                             @if (Route::has('login'))
-                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #A8B8C7; color:white ; border-color:transparent; " >Connexion</button></span> </a>
+                        <a href="{{ route('login') }}"> <span><button style="width: 100px; height:35px; background: #1D1613; color:white ; border-color:transparent; " >Connexion</button></span> </a>
                         
                         <!-- <div class="col-lg-3 cta-btn-container text-center">
                             <a class="cta-btn align-middle" href="{{ route('login') }}">Connexion</a>
@@ -140,18 +140,27 @@
                        
                         @else
                         <!-- <a href="" class="login"><i></i>{{ Auth::user()->name }} </a> -->
-                     <li>   <a href=""> 
+                     <li>   <a href="{{ route('profil') }}"> 
                       <span>
                       <i class="fa fa-user"></i>
                      @auth
+
+                        <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px; height:50px;border-radius: 100%;"; >
+
+                     <!-- <div class="nav-profile-image">
+                     <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
+                  <span class="login-status online"></span>
+                  change to offline or busy as needed
+                </div>
                     {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
-                    @endauth
+                    @endauth -->
                    </a></li>
                        <li> <a href="{{ route('logout') }}"> <span><button style="width: 100px; height:35px; background: rgb(230 45 54);color:white ;border-color:transparent;  " >Deconnexion</button></span> </a></li>
                           @csrf
                          </form>
                          @endguest
              </li>
+             
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         
@@ -201,7 +210,7 @@
                   
 
                   <td>
-                    <a href="" class="btn btn-success">Evoyer Email</a>
+                    <a href="{{ route('bar') }}" class="btn btn-success">Evoyer Email</a>
                     <!-- <a href="" class="btn btn-primary">Telecharger</a>
                     <a href="" class="btn btn-danger">Accepté</a> -->
                     <!-- <a href="" style="display: inline;">

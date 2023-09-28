@@ -33,7 +33,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assetes/css/style.css" rel="stylesheet">
-
+  <link href="responsive.css"  rel="stylesheet">
   <!-- =======================================================
   * Template Name: Flattern
   * Updated: Jul 27 2023 with Bootstrap v5.3.1
@@ -66,16 +66,16 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex justify-content-between">
 
-      <div class="logo">
-        <h1 class="text-light"><a href="index"><img src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
+      <div class="">
+        <h1 class="text-light"><a href="index"><img style="width: 50px;" src="frontend/images/LOGO.png" alt="Logo Image"></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
       <ul>
-          <li><a  href="{{ route('index') }}">Accueil</a></li>
-          <li><a class="active" href="{{ route('listeEvent') }}">SERVICES</a></li>
+          <li><a class="active" href="{{ route('index') }}">Accueil</a></li>
+          <li><a  href="{{ route('service') }}">SERVICES</a></li>
           
           <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
@@ -90,7 +90,7 @@
           <!-- <li><a href="pricing.html">Pricing</a></li>-->
           <li><a href="{{ route('Testimoniale') }}">Testimoniales</a></li> 
           <li><a href="{{ route('article_blog') }}">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>évènements</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>avenements</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               
               <li class="dropdown"><a href="#"><span>Nouvel évènement</span> <i class="bi bi-chevron-right"></i></a>
@@ -102,9 +102,9 @@
                 </ul>
               </li>
               
-              <li class="dropdown"><a href="#"><span>Impliquer un expert</span> <i class="bi bi-chevron-right"></i></a>
+              <li class="dropdown"><a href=""><span>Impliquer un expert</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Discuter avec l'admin </a></li>
+                  <li><a href="{{ route('chatify') }}">Discuter avec l'admin </a></li>
                  
                   
                 </ul>
@@ -144,7 +144,9 @@
                       <span>
                       <i class="fa fa-user"></i>
                      @auth
-                     <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
+
+                        <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px; height:50px;border-radius: 100%;"; >
+
                      <!-- <div class="nav-profile-image">
                      <img src="{{ asset('storage/picture/' . Auth::user()->photo) }}" class="testimonial-img" alt="" style="width: 50px;"; >
                   <span class="login-status online"></span>
@@ -158,17 +160,13 @@
                          </form>
                          @endguest
              </li>
+             
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         
       </nav><!-- .navbar -->
 
     </div>
-
-
-
-
-
   </header>
   <section id="about-us" class="about-us">
       <div class="container">
